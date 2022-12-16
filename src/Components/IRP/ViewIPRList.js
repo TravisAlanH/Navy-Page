@@ -26,6 +26,7 @@ export default function ViewIPRList() {
           return null;
         })}
       </div>
+      <div>{emptyMessage}</div>
       <div className="CreateNewIPRDiv">
         <CreateIRPData />
       </div>
