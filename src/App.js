@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./Styles/IPR.css";
+import ViewIPRList from "./Components/IRP/ViewIPRList";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ViewIPRList />
     </div>
   );
 }
 
 export default App;
+
+// POC,
+// Address,
+// Address2,
+// State,
+// Zip,
+// Phone,
+// Qty,
+// UI,
+// UP,
+// Description,
+// Priority,
+// Department,
+// Date,
+// Just,
+// OF,
+// IJS,
+// WS,
+// F,
+// PS,
+// FFS,
+// HAZ,
+// AUL
