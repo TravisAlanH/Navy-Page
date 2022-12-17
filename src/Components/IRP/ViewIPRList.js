@@ -13,7 +13,11 @@ export default function ViewIPRList() {
       setEmptyMessage("No Continuing Services, Button Below to Add a Vendor");
       return;
     }
-    setData(JSON.parse(localStorage.getItem("ContinuingServices")));
+    setData(
+      JSON.parse(localStorage.getItem("ContinuingServices")).sort((a, b) =>
+        a.Company > b.Company ? 1 : -1
+      )
+    );
   }, []);
 
   return (

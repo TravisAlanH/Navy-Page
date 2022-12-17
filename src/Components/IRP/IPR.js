@@ -123,7 +123,7 @@ export default function IPR({
           <b>SUPPLIES</b>
         </div>
         <div className="SuppliesRadio">
-          <input type="radio" checked />
+          <input type="radio" defaultChecked />
         </div>
         <div className="Or">
           <b>OR</b>

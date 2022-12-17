@@ -141,8 +141,23 @@ gap: 1rem;
 .GridLayoutIPR {
 display: flex;
 flex-direction: row;
-justify-content: flex-start;
+justify-content: center;
 gap: 1rem;
+align-items: center;
+}
+
+.IPRFieldSet {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: .5rem;
+}
+
+.Grid22 {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: .2rem;
 }
 
 .IPRPrintArea {
@@ -150,6 +165,17 @@ gap: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: center;    
+}
+
+/* .IPRDataInput {
+    height: 1.3rem;
+} */
+
+.IPRLabelDataInput {
+    height: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 @media print {
