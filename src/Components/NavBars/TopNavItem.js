@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TopNavItem() {
   return (
-    <ul id="nav">
+    <ul id="nav" className="noPrint">
       <li>
         <a href="#">Percoidei</a>
         <ul>

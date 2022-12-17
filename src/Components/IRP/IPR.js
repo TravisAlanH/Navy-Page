@@ -90,11 +90,11 @@ export default function IPR({
         <div className="ShippingCharges">
           <b>Shipping Charges:</b>
         </div>
-        <div className="ShippingTotal"></div>
+        <div className="ShippingTotal">$0.00</div>
         <div className="Grand">
           <b>Grand Total:</b>
         </div>
-        <div className="GrandTotal"></div>
+        <div className="GrandTotal">${parseFloat(UP) * parseFloat(Qty)}</div>
         <div className="SourceTo">
           <b>Source To:</b>
         </div>
@@ -102,15 +102,15 @@ export default function IPR({
           <b>Ship To:</b>
         </div>
         <div className="POC">POC:</div>
-        <div className="POCData"></div>
+        <div className="POCData">{POC}</div>
         <div className="Name">Name:</div>
         <div className="NameData"></div>
         <div className="Address">Address:</div>
-        <div className="AddressData"></div>
+        <div className="AddressData">{Address}</div>
         <div className="ToAddress">Address:</div>
-        <div className="ToAddressData"></div>
+        <div className="ToAddressData">{Address2}</div>
         <div className="Phone">Phone #:</div>
-        <div className="PhoneData"></div>
+        <div className="PhoneData">{Phone}</div>
         <div className="ToPhone">Phone #:</div>
         <div className="ToPhoneData"></div>
         <div className="RequestJustification">
@@ -118,12 +118,12 @@ export default function IPR({
             REQUEST MUST HAVE VALID JUSTIFICATION
           </b>
         </div>
-        <div className="JustificationData"></div>
+        <div className="JustificationData">{Just}</div>
         <div className="Supplies">
           <b>SUPPLIES</b>
         </div>
         <div className="SuppliesRadio">
-          <input type="radio" />
+          <input type="radio" checked />
         </div>
         <div className="Or">
           <b>OR</b>
@@ -185,7 +185,7 @@ export default function IPR({
             https://www.restricted.fedmall.mil/webapp/wcs/stores/ servlet/en/fśŕ
           </a>
         </div>
-        <div className="ScreeningSection4"></div>
+        <div className="ScreeningSection4">{OF}</div>
         <div className="ScreeningSection2">
           Incidental Janitorial and Sanitation Supplies: AbilityOne Office
           Supplies from FEDMALL
@@ -195,7 +195,7 @@ export default function IPR({
             https://www.restricted.fedmall.mil/webapp/wcs/stores/ servlet/en/fśŕ
           </a>
         </div>
-        <div className="ScreeningSection4"></div>
+        <div className="ScreeningSection4">{IJS}</div>
         <div className="ScreeningSection2">
           Wireless Services: NAVSUP FLC ‐ San Diego (DON Wireless Contract)
         </div>
@@ -206,7 +206,7 @@ export default function IPR({
             3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114
           </a>
         </div>
-        <div className="ScreeningSection4"></div>
+        <div className="ScreeningSection4">{WS}</div>
         <div className="ScreeningSection2">
           Furniture: NAVSUP FLC ‐ Norfolk BPA
         </div>
@@ -217,26 +217,26 @@ export default function IPR({
             3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114
           </a>
         </div>
-        <div className="ScreeningSection4"></div>
+        <div className="ScreeningSection4">{F}</div>
         <div className="ScreeningSection2">
           Printing Services: DLA Document Services
         </div>
         <div className="ScreeningSection3">
           <a href=" ">https://dso.dla.mil/DSF/storefront.aspx</a>
         </div>
-        <div className="ScreeningSection4"></div>
+        <div className="ScreeningSection4">{PS}</div>
         <div className="ScreeningSection22">
           Federal Supply Schedules (FSS) Contract #
         </div>
-        <div className="ScreeningSection12"></div>
+        <div className="ScreeningSection12">{FFS}</div>
         <div className="Hazmat">
           <b>HAZMAT:</b>
         </div>
-        <div className="HazmatBlank"></div>
+        <div className="HazmatBlank">{HAZ}</div>
         <div className="ItemOnAUL">
           <b>Item on AUL:</b>
         </div>
-        <div className="ItemOnAULBlank"></div>
+        <div className="ItemOnAULBlank">{AUL}</div>
         <div className="HazmatPO">
           <b>HAZMAT PO Approver Signature</b>
         </div>

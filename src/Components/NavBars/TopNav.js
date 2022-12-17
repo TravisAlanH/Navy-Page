@@ -3,8 +3,10 @@ import TopNavItem from "./TopNavItem";
 
 export default function TopNav() {
   return (
-    <div className="TopNavBar FlexRowStartCenter">
-      <TopNavItem />
+    <div className="noPrint">
+      <div className="TopNavBar FlexRowStartCenter">
+        <TopNavItem />
+      </div>
     </div>
   );
 }

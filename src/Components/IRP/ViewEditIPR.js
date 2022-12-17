@@ -91,7 +91,8 @@ export default function CreateIRPData({
       <form onSubmit={handleUpdate} id="formData">
         <input type="hidden" name="id" defaultValue={id} />
         <div className="GridLayoutIPR">
-          <div>
+          <div className="FlexColCenterCenter">
+            <label>asdf</label>
             <input
               type="text"
               className="IPRData2"
@@ -129,13 +130,14 @@ export default function CreateIRPData({
               defaultValue={Phone}
             />
           </div>
-          <div>
+          <div className="FlexColCenterCenter">
             <input
               type="text"
               className="IPRData2"
               name="QTY"
               defaultValue={Qty}
             />
+
             <input
               type="text"
               className="IPRData2"
@@ -155,6 +157,7 @@ export default function CreateIRPData({
               name="Description"
               defaultValue={Description}
             />
+
             <input
               type="textarea"
               className="IPRData4"
@@ -162,7 +165,7 @@ export default function CreateIRPData({
               placeholder={Just}
             />
           </div>
-          <div>
+          <div className="FlexColCenterCenter">
             <input
               type="text"
               className="IPRData2"
@@ -182,7 +185,7 @@ export default function CreateIRPData({
               defaultValue={Date}
             />
           </div>
-          <div>
+          <div className="FlexColCenterCenter">
             <select className="IPRData2" name="OF" defaultValue={OF}>
               <option>N/A</option>
               <option>Yes, Attached</option>

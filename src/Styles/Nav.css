@@ -36,11 +36,17 @@
 #nav a {
 	display: block;
 	width: 10em;
+    padding-left: 1rem;
 }
 
 #nav li {
 	float: left;
 	width: 10em;
+    height: 3rem;
+}
+
+#nav li a {
+    padding-top: .8rem;
 }
 
 #nav li ul {
@@ -49,11 +55,18 @@
 	left: -999em;
     transition: all 3s ease-in-out;
     background-color: red;
-    padding: 3rem;
+    margin-top: .8rem;
+}
+#nav li ul a {
+    /* padding: 1rem; */
 }
 
 #nav li:hover ul {
 	left: auto;
+}
+
+#nav li ul:hover ul {
+    left: auto;
 }
 
 
@@ -89,7 +102,7 @@
 
 .FlexColCenterCenter {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
