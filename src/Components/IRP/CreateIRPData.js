@@ -32,6 +32,7 @@ export default function CreateIRPData() {
     HAZ: "",
     AUL: "",
     TYPE: "",
+    PriorAmount: "-",
   };
 
   function handleSubmit(e) {

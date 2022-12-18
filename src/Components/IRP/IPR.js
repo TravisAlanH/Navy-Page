@@ -25,7 +25,6 @@ export default function IPR({
   HAZ,
   AUL,
 }) {
-  console.log(Department);
   return (
     <div className="IPRPrintArea">
       <div className="GridLayout">
@@ -106,9 +105,11 @@ export default function IPR({
         <div className="Name">Name:</div>
         <div className="NameData"></div>
         <div className="Address">Address:</div>
-        <div className="AddressData">{Address}</div>
+        <div className="AddressData">
+          {Address}, {Address2}, {State}, {Zip}
+        </div>
         <div className="ToAddress">Address:</div>
-        <div className="ToAddressData">{Address2}</div>
+        <div className="ToAddressData"></div>
         <div className="Phone">Phone #:</div>
         <div className="PhoneData">{Phone}</div>
         <div className="ToPhone">Phone #:</div>

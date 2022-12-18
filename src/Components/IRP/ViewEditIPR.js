@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function ViewEditIPR({
   id,
@@ -26,6 +26,7 @@ export default function ViewEditIPR({
   HAZ,
   AUL,
   TYPE,
+  PriorAmount,
 }) {
   //   const [submitStatus, setsubmitStatus] = useState(New);
 
@@ -83,12 +84,21 @@ export default function ViewEditIPR({
         item.HAZ = e.target.elements.HAZ.value;
         item.AUL = e.target.elements.AUL.value;
         item.TYPE = e.target.elements.TYPE.value;
+        item.PriorAmount = e.target.elements.PriorAmount.value;
       }
       return item;
     });
     updateData.sort((a, b) => (a.Company > b.Company ? 1 : -1));
     localStorage.setItem("ContinuingServices", JSON.stringify(updateData));
   }
+
+  useEffect(() => {
+    if (TYPE === "RPN") {
+      document.getElementById("show").style.display = "flex";
+    } else {
+      document.getElementById("show").style.display = "none";
+    }
+  }, [TYPE]);
 
   return (
     <div className="IPRDataBox noPrint">
@@ -177,7 +187,7 @@ export default function ViewEditIPR({
                 type="textarea"
                 className="IPRData4"
                 name="Just"
-                placeholder={Just}
+                defaultValue={Just}
               />
 
               <label className="IPRLabelDataInput">Priority</label>
@@ -250,11 +260,13 @@ export default function ViewEditIPR({
                 defaultValue={FFS}
                 // required
               />
-              <label className="IPRLabelDataInput">RPN</label>
-              <select className="IPRData2" name="TYPE" defaultValue={TYPE}>
-                <option>RPN</option>
-                <option>OPTAR</option>
-              </select>
+              <div className="FlexRowCenterCenter">
+                <label className="IPRLabelDataInput">RPN</label>
+                <select className="IPRData2" name="TYPE" defaultValue={TYPE}>
+                  <option>RPN</option>
+                  <option>OPTAR</option>
+                </select>
+              </div>
 
               <input type="submit" value="Update" name="submit" />
               <button
@@ -265,6 +277,10 @@ export default function ViewEditIPR({
                 Delete
               </button>
             </div>
+          </div>
+          <div className="FlexRowCenterCenter" id="show">
+            <label className="IPRLabelDataInput">Prior Funding Amount</label>
+            <input type="text" name="PriorAmount" defaultValue={PriorAmount} />
           </div>
         </fieldset>
       </form>

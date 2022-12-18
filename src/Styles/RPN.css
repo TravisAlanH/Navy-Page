@@ -1,0 +1,82 @@
+.B1, .ZeroZeroOne, .MPC, .PageOneOfOne {
+    grid-column: span 1;
+}
+
+.DocN, .B2 {
+    grid-column: span 2;
+}
+
+.DocNPlace, .AmendNum, .OptarLog, .B3 {
+    grid-column: span 3;
+}
+
+.B4 {
+    grid-column: span 4;
+}
+
+.B6 {
+    grid-column: span 6;
+}
+
+.B7 {
+    grid-column: span 7;
+}
+.B8 {
+    grid-column: span 8;
+}
+.B10 {
+    grid-column: span 10;
+}
+
+.B11 {
+    grid-column: span 11;
+}
+
+.B13 {
+    grid-column: span 13;
+}
+
+.B14 {
+    grid-column: span 14;
+}
+
+.BorderAll {
+    border: 1px solid black
+}
+
+.BorderBottom {
+    border-bottom: 1px solid black;
+}
+
+.BorderRight {
+    border-right: 1px solid black;
+}
+
+.GridLayoutRPN {
+    page-break-after: always;
+    width: auto;
+    font-size: .6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+
+    /* width: auto; */
+
+    height: auto;
+    display: grid;
+    grid-template-columns: 2.75rem 2.76rem 3.75rem 2.75rem 2.75rem 2.75rem 2.75rem 2.75rem 2.75rem 2.75rem 2.75rem 2.75rem 5.625rem 4.375rem;
+    grid-template-rows: 1.4rem 1.4rem 1.4rem 1.4rem 2.5rem 1.4rem 1.4rem 1.4rem 1.5rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem 1.4rem ;
+}
+
+.GridLayoutRPN > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.FlexRowSpaceBetween {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around !important;
+}

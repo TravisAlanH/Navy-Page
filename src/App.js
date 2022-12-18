@@ -1,12 +1,15 @@
 import "./App.css";
 import "./Styles/IPR.css";
 import "./Styles/Nav.css";
-import HomePage from "./Components/HomePage";
+import "./Styles/RPN.css";
+// import HomePage from "./Components/HomePage";
+import RPN from "./Components/IRP/RPN";
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <RPN />
+      {/* <HomePage /> */}
     </div>
   );
 }

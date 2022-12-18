@@ -92,6 +92,7 @@ b, a {
     height: auto;
     display: grid;
     grid-template-columns: 5.687rem 5.875rem 12.875rem 5.25rem 7rem 2.125rem 2.125rem 2.125rem 4.687rem;
+
     /* grid-template-columns: 91px 97px 203px 84px 112px 34px 34px 34px 75px; */
     grid-template-rows: 2.25rem 1.187rem 2.062rem 2.062rem 2.062rem 2.062rem 2.062rem 1.312rem 1.312rem 2.312rem 1.312rem 2.875rem 1.312rem 1.312rem 1.312rem 1.312rem 1.312rem 1.312rem 1.312rem 3.062rem 3.062rem 3.062rem 3.062rem 3.062rem 3.062rem 1.437rem 1.062rem 1.312rem 1.312rem 1.312rem 1.312rem 1.312rem 1.312rem 1.312rem ;
     /* grid-template-rows: 36px 19px 33px 33px 33px 33px 33px/ 21px 21px 37px 21px/ 46px/ 21px 21px 21px 21px 21px 21px 21px/ 49px 49px 49px 49px 49px 49px/ 23px 17px/ 21px 21px 21px 21px 21px 21px 21px; */
@@ -107,8 +108,8 @@ b, a {
     word-wrap: break-word;
     overflow: hidden;
     border: 1px solid black
-
 }
+
 .GridLayout > div > * {
     margin-left: .1rem;
 }
