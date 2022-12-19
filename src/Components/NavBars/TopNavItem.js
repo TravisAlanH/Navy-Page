@@ -1,22 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function TopNavItem() {
   return (
     <ul id="nav" className="noPrint">
       <li>
-        <a href=" ">Percoidei</a>
+        <a href=" ">IPR</a>
         <ul>
           <li>
-            <a href=" ">Remoras</a>
+            <Link to="/IPR_List">List</Link>
           </li>
           <li>
-            <a href=" ">Tilefishes</a>
-          </li>
-          <li>
-            <a href=" ">Bluefishes</a>
-          </li>
-          <li>
-            <a href=" ">Tigerfishes</a>
+            <Link to="/View_IPRRPN_Docs">Docs</Link>
           </li>
         </ul>
       </li>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CreateIRPData from "./CreateIRPData";
 import ViewEditIPR from "./ViewEditIPR";
-import IPR from "./IPR";
+// import IPR from "./IPR";
 
 export default function ViewIPRList() {
   const [data, setData] = useState([]);
@@ -34,12 +34,6 @@ export default function ViewIPRList() {
       <div className="CreateNewIPRDiv">
         <CreateIRPData />
       </div>
-      {data.map((item, index) => {
-        if (item.id === "") {
-          return null;
-        }
-        return <IPR {...item} key={index} />;
-      })}
     </div>
   );
 }

@@ -184,6 +184,7 @@ align-items: center;
         font-size: 80%;
         print-color-adjust: exact;
     }
+    
     .noPrint {
         display: none;
     }
@@ -196,7 +197,7 @@ align-items: center;
         border: none;
     }
     .UnderNav {
-        display: none;
+        /* display: none; */
     }
     .TopNavBar {
         display: none;

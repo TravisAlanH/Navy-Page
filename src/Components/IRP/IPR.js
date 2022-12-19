@@ -2,6 +2,7 @@ import React from "react";
 
 export default function IPR({
   id,
+  Company,
   POC,
   Address,
   Address2,

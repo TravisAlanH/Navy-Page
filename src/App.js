@@ -3,14 +3,18 @@ import "./Styles/IPR.css";
 import "./Styles/Nav.css";
 import "./Styles/RPN.css";
 // import HomePage from "./Components/HomePage";
-import RPN from "./Components/IRP/RPN";
+import { BrowserRouter as Router } from "react-router-dom";
+import TopNav from "./Components/NavBars/TopNav";
+import RouterPath from "./Components/Build/RouterPath";
 
 function App() {
   return (
-    <div className="App">
-      <RPN />
-      {/* <HomePage /> */}
-    </div>
+    <Router>
+      <div className="App">
+        <TopNav />
+        <RouterPath />
+      </div>
+    </Router>
   );
 }
 

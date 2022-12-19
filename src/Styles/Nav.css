@@ -96,8 +96,14 @@
 .FlexRowCenterCenter {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center !important;
     align-items: center;
+}
+
+.FlexRowSpaceBetween {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around !important;
 }
 
 .FlexColCenterCenter {
