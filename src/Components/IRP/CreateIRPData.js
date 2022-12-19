@@ -1,5 +1,6 @@
 import React from "react";
 import { v4 as uuid } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateIRPData() {
   //   const [submitStatus, setsubmitStatus] = useState(New);
@@ -35,8 +36,10 @@ export default function CreateIRPData() {
     PriorAmount: "-",
   };
 
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
 
     data.id = unique_id;
     data.Company = e.target.elements.Company.value;
@@ -74,6 +77,8 @@ export default function CreateIRPData() {
       added.sort((a, b) => (a.Company > b.Company ? 1 : -1));
       localStorage.setItem("ContinuingServices", JSON.stringify(added));
     }
+    // navigate("/IPR_List");
+    navigate(0);
   }
 
   return (
