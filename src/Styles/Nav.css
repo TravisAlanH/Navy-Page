@@ -57,9 +57,9 @@
     background-color: red;
     margin-top: .8rem;
 }
-#nav li ul a {
-    /* padding: 1rem; */
-}
+/* #nav li ul a {
+    padding: 1rem;
+} */
 
 #nav li:hover ul {
 	left: auto;
