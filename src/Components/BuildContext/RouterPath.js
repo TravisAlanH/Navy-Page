@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import RNPDataEdit from "../IRP/RNPDataEdit";
 import ViewIPRList from "../IRP/ViewIPRList";
 import ViewIPRRPNDocs from "../IRP/ViewIPR_RPNDocs";
 
@@ -14,6 +15,7 @@ export default function RouterPath() {
         path="/View_IPRRPN_Docs"
         element={<ViewIPRRPNDocs />}
       ></Route>
+      <Route exact path="/RPN_edit" element={<RNPDataEdit />}></Route>
     </Routes>
   );
 }

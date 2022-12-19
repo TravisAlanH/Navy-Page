@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ViewEditIPR({
   id,
@@ -50,6 +51,8 @@ export default function ViewEditIPR({
     }
   }
 
+  const navigate = useNavigate();
+
   function handleUpdate(e) {
     e.preventDefault();
 
@@ -88,8 +91,9 @@ export default function ViewEditIPR({
       }
       return item;
     });
-    updateData.sort((a, b) => (a.Company > b.Company ? 1 : -1));
+    updateData.sort((a, b) => (a.Company < b.Company ? 1 : -1));
     localStorage.setItem("ContinuingServices", JSON.stringify(updateData));
+    navigate(0);
   }
 
   useEffect(() => {

@@ -3,39 +3,41 @@ import { Link } from "react-router-dom";
 
 export default function TopNavItem() {
   return (
-    <ul id="nav" className="noPrint">
-      <li>
-        <a href=" ">IPR</a>
-        <ul>
-          <li>
-            <Link to="/IPR_List">List</Link>
-          </li>
-          <li>
-            <Link to="/View_IPRRPN_Docs">Docs</Link>
-          </li>
-        </ul>
-      </li>
+    <div className="NavBar">
+      <div className="DropDown">
+        <button className="DropBTN">Continuing Services</button>
+        <div className="DropDownContent">
+          <Link to="/IPR_List" className="NavListItemLink">
+            Vendor List
+          </Link>
+          <Link to="/View_IPRRPN_Docs" className="NavListItemLink">
+            Print Documents
+          </Link>
+          <Link to="/RPN_edit" className="NavListItemLink">
+            Edit RPN Funding
+          </Link>
+        </div>
+      </div>
+    </div>
 
-      <li>
-        <a href=" ">Anabantoidei</a>
-        <ul>
-          <li>
-            <a href=" ">Climbing perches</a>
-          </li>
-          <li>
-            <a href=" ">Labyrinthfishes</a>
-          </li>
-          <li>
-            <a href=" ">Kissing gouramis</a>
-          </li>
-          <li>
-            <a href=" ">Pike-heads</a>
-          </li>
-          <li>
-            <a href=" ">Giant gouramis</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    // <ul id="nav" className="noPrint">
+    //   <li className="NavList">
+    //     <a href=" " className="NavLinkHead">
+    //       Continuing Services
+    //     </a>
+    //     <ul className="NavUnorderedList">
+    //       <li className="NavListItem">
+    //         <Link to="/IPR_List" className="NavListItemLink">
+    //           Vendor List
+    //         </Link>
+    //       </li>
+    //       <li className="NavListItem">
+    //         <Link to="/View_IPRRPN_Docs" className="NavListItemLink">
+    //           Print Documents
+    //         </Link>
+    //       </li>
+    //     </ul>
+    //   </li>
+    // </ul>
   );
 }
