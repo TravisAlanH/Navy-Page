@@ -26,6 +26,26 @@ export default function RPN({
   HAZ,
   AUL,
 }) {
+  let data;
+  if (localStorage.getItem("NPNData") === null) {
+    data = {
+      ACRN: "",
+      GA: "",
+      BFYEFY: "",
+      APPN: "",
+      SBHD: "",
+      OBJCLASS: "",
+      BCN: "",
+      BLANK: "",
+      SA: "",
+      AAA: "",
+      TT: "",
+      PAA: "",
+      COSTCOST: "",
+    };
+  } else {
+    data = JSON.parse(localStorage.getItem("NPNData"));
+  }
   return (
     <div className="IPRPrintArea">
       <div className="GridLayoutRPN">
@@ -62,20 +82,46 @@ export default function RPN({
         <div className="B1 BorderAll AlignCenterCenter">PAA</div>
         <div className="B1 BorderAll AlignCenterCenter">COST CODE</div>
         <div className="B1 BorderAll AlignCenterCenter">AMOUNT</div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
-        <div className="B1 BorderAll GrayLight"></div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.ACRN}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.GA}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.BFYEFY}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.APPN}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.SBHD}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.OBJCLASS}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.BCN}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.BLANK}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.SA}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.AAA}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.TT}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.PAA}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">
+          {data.COSTCOST}
+        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight"></div>
         <div className="B13 BorderAll AlignEndBottom GrayLight">
           Prior Funding Document Grand Total
         </div>

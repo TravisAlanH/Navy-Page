@@ -95,6 +95,7 @@
     word-wrap: break-word;
     overflow: hidden;
     padding-left: .2rem;
+    padding-right: .2rem;
 }
 
 .AlignEndBottom {
@@ -110,4 +111,14 @@
 
 .AlignBottom {
     align-items: flex-end;
+}
+
+.RNPDataLabel {
+    text-align: right;
+}
+
+.Grid22RPNData {
+    display: grid;
+    grid-template-columns: 6rem max-content;
+    gap: .2rem;
 }
