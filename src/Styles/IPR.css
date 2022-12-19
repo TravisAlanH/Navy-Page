@@ -196,9 +196,6 @@ align-items: center;
         align-items: center;
         border: none;
     }
-    .UnderNav {
-        /* display: none; */
-    }
     .TopNavBar {
         display: none;
     }
