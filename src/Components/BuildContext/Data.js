@@ -1,5 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import AJV from "ajv";
+import RPNSchema from "./Schema/RPNAccountingSchema.json";
+
+const ajv = new AJV();
 
 export default function Data() {
   const navigate = useNavigate();
@@ -11,11 +15,33 @@ export default function Data() {
     document.execCommand("copy");
   }
 
-  function SaveData(data, location) {
+  function SaveData(data, location, Schema) {
     var inputText = document.getElementById(data).value;
+
+    const validate = ajv.compile(Schema);
+
+    if (!validate(JSON.parse(inputText))) {
+      alert(
+        "Data is NOT Valid Please Check Input File and Try again : NO DATA SAVED"
+      );
+      navigate(0);
+      return;
+    }
+
+    console.log(inputText);
+    if (inputText === "") {
+      alert(
+        "Data is NOT Valid Please Check Input File and Try again : NO DATA SAVEDdddddd"
+      );
+      localStorage.removeItem(location);
+      navigate(0);
+      return;
+    }
+
     localStorage.setItem(location, inputText);
     navigate(0);
   }
+
   return (
     <div className="FlexColCenterCenter">
       {/* DATA SECTION START */}
@@ -26,9 +52,12 @@ export default function Data() {
         {/* Copy Section */}
         <div className="FlexColStartStart">
           Current Data
-          <textarea rows="8" cols="40" id="ContinuingServicesCopyArea">
-            {localStorage.getItem("ContinuingServices")}
-          </textarea>
+          <textarea
+            rows="8"
+            cols="40"
+            id="ContinuingServicesCopyArea"
+            defaultValue={localStorage.getItem("ContinuingServices")}
+          ></textarea>
           <button onClick={() => CopyData("ContinuingServicesCopyArea")}>
             Copy
           </button>
@@ -62,16 +91,21 @@ export default function Data() {
         {/* Copy Section */}
         <div className="FlexColStartStart">
           Current Data
-          <textarea rows="8" cols="40" id="NPNDataCopyArea">
-            {localStorage.getItem("NPNData")}
-          </textarea>
+          <textarea
+            rows="8"
+            cols="40"
+            id="NPNDataCopyArea"
+            defaultValue={localStorage.getItem("NPNData")}
+          ></textarea>
           <button onClick={() => CopyData("NPNDataCopyArea")}>Copy</button>
         </div>
         {/* Input Section */}
         <div className="FlexColStartStart">
           Input Data and Save
           <textarea rows="8" cols="40" id="RPNTextInputArea"></textarea>
-          <button onClick={() => SaveData("RPNTextInputArea", "NPNData")}>
+          <button
+            onClick={() => SaveData("RPNTextInputArea", "NPNData", RPNSchema)}
+          >
             Save
           </button>
         </div>

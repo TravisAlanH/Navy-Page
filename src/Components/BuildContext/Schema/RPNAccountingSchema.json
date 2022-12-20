@@ -1,0 +1,60 @@
+{
+
+    "type": "object",
+    "properties": {
+      "ACRN": {
+        "type": "string"
+      },
+      "GA": {
+        "type": "string"
+      },
+      "BFYEFY": {
+        "type": "string"
+      },
+      "APPN": {
+        "type": "string"
+      },
+      "SBHD": {
+        "type": "string"
+      },
+      "OBJCLASS": {
+        "type": "string"
+      },
+      "BCN": {
+        "type": "string"
+      },
+      "BLANK": {
+        "type": "string"
+      },
+      "SA": {
+        "type": "string"
+      },
+      "AAA": {
+        "type": "string"
+      },
+      "TT": {
+        "type": "string"
+      },
+      "PAA": {
+        "type": "string"
+      },
+      "COSTCOST": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "ACRN",
+      "GA",
+      "BFYEFY",
+      "APPN",
+      "SBHD",
+      "OBJCLASS",
+      "BCN",
+      "BLANK",
+      "SA",
+      "AAA",
+      "TT",
+      "PAA",
+      "COSTCOST"
+    ]
+  }
