@@ -3,6 +3,8 @@ import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import RNPDataEdit from "../IRP/RNPDataEdit";
 import ViewIPRList from "../IRP/ViewIPRList";
 import ViewIPRRPNDocs from "../IRP/ViewIPR_RPNDocs";
+import Data from "./Data";
+import Settings from "./Settings";
 
 export default function RouterPath() {
   let location = useLocation();
@@ -16,6 +18,8 @@ export default function RouterPath() {
         element={<ViewIPRRPNDocs />}
       ></Route>
       <Route exact path="/RPN_edit" element={<RNPDataEdit />}></Route>
+      <Route exact path="/Data" element={<Data />}></Route>
+      <Route exact path="/Settings" element={<Settings />}></Route>
     </Routes>
   );
 }

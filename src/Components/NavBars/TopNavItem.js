@@ -18,6 +18,17 @@ export default function TopNavItem() {
           </Link>
         </div>
       </div>
+      <div className="DropDown">
+        <button className="DropBTN">Settings</button>
+        <div className="DropDownContent">
+          <Link to="/Settings" className="NavListItemLink">
+            Command
+          </Link>
+          <Link to="/Data" className="NavListItemLink">
+            Data
+          </Link>
+        </div>
+      </div>
     </div>
 
     // <ul id="nav" className="noPrint">
