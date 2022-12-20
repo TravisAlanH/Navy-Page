@@ -41,6 +41,7 @@ export default function ViewIPRRPNDocs() {
               name="PrintRadio"
               className="PrintRadio"
               onChange={PrintAll}
+              checked
             />
           </div>
           <div className="RadioDiv">

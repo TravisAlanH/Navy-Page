@@ -58,79 +58,79 @@ export default function RNPDataEdit() {
             <label className="RNPDataLabel">
               <span>ACRN</span>
             </label>
-            <input name="ACRN" type="text" placeholder={data.ACRN} />
+            <input name="ACRN" type="text" defaultValue={data.ACRN} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>GA</span>
             </label>
-            <input name="GA" type="text" placeholder={data.GA} />
+            <input name="GA" type="text" defaultValue={data.GA} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>BFYEFY</span>
             </label>
-            <input name="BFYEFY" type="text" placeholder={data.BFYEFY} />
+            <input name="BFYEFY" type="text" defaultValue={data.BFYEFY} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>APPN</span>
             </label>
-            <input name="APPN" type="text" placeholder={data.APPN} />
+            <input name="APPN" type="text" defaultValue={data.APPN} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>SBHD</span>
             </label>
-            <input name="SBHD" type="text" placeholder={data.SBHD} />
+            <input name="SBHD" type="text" defaultValue={data.SBHD} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>OBJCLASS</span>
             </label>
-            <input name="OBJCLASS" type="text" placeholder={data.OBJCLASS} />
+            <input name="OBJCLASS" type="text" defaultValue={data.OBJCLASS} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>BCN</span>
             </label>
-            <input name="BCN" type="text" placeholder={data.BCN} />
+            <input name="BCN" type="text" defaultValue={data.BCN} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>BLANK</span>
             </label>
-            <input name="BLANK" type="text" placeholder={data.BLANK} />
+            <input name="BLANK" type="text" defaultValue={data.BLANK} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>SA</span>
             </label>
-            <input name="SA" type="text" placeholder={data.SA} />
+            <input name="SA" type="text" defaultValue={data.SA} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>AAA</span>
             </label>
-            <input name="AAA" type="text" placeholder={data.AAA} />
+            <input name="AAA" type="text" defaultValue={data.AAA} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>TT</span>
             </label>
-            <input name="TT" type="text" placeholder={data.TT} />
+            <input name="TT" type="text" defaultValue={data.TT} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>PAA</span>
             </label>
-            <input name="PAA" type="text" placeholder={data.PAA} />
+            <input name="PAA" type="text" defaultValue={data.PAA} />
           </div>
           <div className="Grid22RPNData">
             <label className="RNPDataLabel">
               <span>COSTCOST</span>
             </label>
-            <input name="COSTCOST" type="text" placeholder={data.COSTCOST} />
+            <input name="COSTCOST" type="text" defaultValue={data.COSTCOST} />
           </div>
 
           <input type="submit" value="Submit" name="submit" />
