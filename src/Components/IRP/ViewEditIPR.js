@@ -28,6 +28,7 @@ export default function ViewEditIPR({
   AUL,
   TYPE,
   PriorAmount,
+  WEB,
 }) {
   //   const [submitStatus, setsubmitStatus] = useState(New);
 
@@ -43,7 +44,6 @@ export default function ViewEditIPR({
     });
     console.log(updateData);
     if (updateData.length === 0) {
-      console.log("er");
       localStorage.removeItem("ContinuingServices");
       window.location.reload();
     } else {
@@ -88,6 +88,7 @@ export default function ViewEditIPR({
         item.AUL = e.target.elements.AUL.value;
         item.TYPE = e.target.elements.TYPE.value;
         item.PriorAmount = e.target.elements.PriorAmount.value;
+        item.WEB = e.target.elements.WEB.value.replace(/^https?:\/\//, "");
       }
       return item;
     });
@@ -99,8 +100,10 @@ export default function ViewEditIPR({
   useEffect(() => {
     if (TYPE === "RPN") {
       document.getElementById("show").style.display = "flex";
+      document.getElementById("showInput").style.display = "flex";
     } else {
       document.getElementById("show").style.display = "none";
+      document.getElementById("showInput").style.display = "none";
     }
   }, [TYPE]);
 
@@ -114,6 +117,13 @@ export default function ViewEditIPR({
           <input type="hidden" name="id" defaultValue={id} />
           <div className="GridLayoutIPR">
             <div className="Grid22">
+              <label className="IPRLabelDataInput">WebPage</label>
+              <input
+                type="text"
+                className="IPRData2"
+                name="WEB"
+                placeholder={WEB}
+              />
               <label className="IPRLabelDataInput">POC</label>
               <input
                 type="text"
@@ -201,8 +211,7 @@ export default function ViewEditIPR({
                 name="Priority"
                 defaultValue={Priority}
               />
-            </div>
-            <div className="Grid22">
+
               <label className="IPRLabelDataInput">Department</label>
               <input
                 type="text"
@@ -210,6 +219,8 @@ export default function ViewEditIPR({
                 name="Department"
                 defaultValue={Department}
               />
+            </div>
+            <div className="Grid22">
               <label className="IPRLabelDataInput">Date</label>
               <input
                 type="date"
@@ -238,8 +249,7 @@ export default function ViewEditIPR({
                 <option>N/A</option>
                 <option>Yes, Attached</option>
               </select>
-            </div>
-            <div className="Grid22">
+
               <label className="IPRLabelDataInput">Printing Service</label>
               <select className="IPRData2" name="PS" defaultValue={PS}>
                 <option>N/A</option>
@@ -250,6 +260,8 @@ export default function ViewEditIPR({
                 <option>N/A</option>
                 <option>Yes, Attached</option>
               </select>
+            </div>
+            <div className="Grid22">
               <label className="IPRLabelDataInput">AUL</label>
               <select className="IPRData2" name="AUL" defaultValue={AUL}>
                 <option>N/A</option>
@@ -264,13 +276,21 @@ export default function ViewEditIPR({
                 defaultValue={FFS}
                 // required
               />
-              <div className="FlexRowCenterCenter">
-                <label className="IPRLabelDataInput">RPN</label>
-                <select className="IPRData2" name="TYPE" defaultValue={TYPE}>
-                  <option>RPN</option>
-                  <option>OPTAR</option>
-                </select>
-              </div>
+
+              <label className="IPRLabelDataInput">RPN</label>
+              <select className="IPRData2" name="TYPE" defaultValue={TYPE}>
+                <option>RPN</option>
+                <option>OPTAR</option>
+              </select>
+              <label className="IPRLabelDataInput" id="show">
+                Prior Funding Amount
+              </label>
+              <input
+                type="text"
+                name="PriorAmount"
+                defaultValue={PriorAmount}
+                id="showInput"
+              />
 
               <input type="submit" value="Update" name="submit" />
               <button
@@ -281,10 +301,6 @@ export default function ViewEditIPR({
                 Delete
               </button>
             </div>
-          </div>
-          <div className="FlexRowCenterCenter" id="show">
-            <label className="IPRLabelDataInput">Prior Funding Amount</label>
-            <input type="text" name="PriorAmount" defaultValue={PriorAmount} />
           </div>
         </fieldset>
       </form>

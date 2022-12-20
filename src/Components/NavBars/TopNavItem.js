@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function TopNavItem() {
+  let vendors = JSON.parse(localStorage.getItem("ContinuingServices")) || [];
   return (
     <div className="NavBar">
+      {/* DROP */}
       <div className="DropDown">
         <button className="DropBTN">Continuing Services</button>
         <div className="DropDownContent">
@@ -18,6 +20,7 @@ export default function TopNavItem() {
           </Link>
         </div>
       </div>
+      {/* DROP */}
       <div className="DropDown">
         <button className="DropBTN">Settings</button>
         <div className="DropDownContent">
@@ -27,6 +30,25 @@ export default function TopNavItem() {
           <Link to="/Data" className="NavListItemLink">
             Data
           </Link>
+        </div>
+      </div>
+      {/* DROP */}
+      <div className="DropDown">
+        <button className="DropBTN">Vendor Links</button>
+        <div className="DropDownContent">
+          {vendors.map((item, index) => {
+            return (
+              <a
+                className="NavListItemLink"
+                href={"https://" + item.WEB}
+                target="_blank"
+                rel="noreferrer"
+                key={index}
+              >
+                {item.Company}
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>

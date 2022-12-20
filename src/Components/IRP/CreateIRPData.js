@@ -34,6 +34,7 @@ export default function CreateIRPData() {
     AUL: "",
     TYPE: "",
     PriorAmount: "-",
+    WEB: "",
   };
 
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ export default function CreateIRPData() {
     data.HAZ = e.target.elements.HAZ.value;
     data.AUL = e.target.elements.AUL.value;
     data.TYPE = e.target.elements.TYPE.value;
+    data.WEB = e.target.elements.WEB.value.replace(/^https?:\/\//, "");
 
     if (localStorage.getItem("ContinuingServices") === null) {
       let testData = [data];
@@ -90,6 +92,13 @@ export default function CreateIRPData() {
           </legend>
           <div className="GridLayoutIPR">
             <div className="Grid22">
+              <label className="IPRLabelDataInput">WebPage</label>
+              <input
+                type="text"
+                className="IPRData2"
+                name="WEB"
+                placeholder="Webpage"
+              />
               <label className="IPRLabelDataInput">POC</label>
               <input
                 type="text"
@@ -177,8 +186,7 @@ export default function CreateIRPData() {
                 name="Priority"
                 placeholder="Priority"
               />
-            </div>
-            <div className="Grid22">
+
               <label className="IPRLabelDataInput">Department</label>
               <input
                 type="text"
@@ -186,6 +194,8 @@ export default function CreateIRPData() {
                 name="Department"
                 placeholder="Department"
               />
+            </div>
+            <div className="Grid22">
               <label className="IPRLabelDataInput">Date</label>
               <input
                 type="date"
@@ -214,8 +224,7 @@ export default function CreateIRPData() {
                 <option>N/A</option>
                 <option>Yes, Attached</option>
               </select>
-            </div>
-            <div className="Grid22">
+
               <label className="IPRLabelDataInput">Printing Service</label>
               <select className="IPRData2" name="PS" placeholder="N/A">
                 <option>N/A</option>
@@ -226,6 +235,8 @@ export default function CreateIRPData() {
                 <option>N/A</option>
                 <option>Yes, Attached</option>
               </select>
+            </div>
+            <div className="Grid22">
               <label className="IPRLabelDataInput">AUL</label>
               <select className="IPRData2" name="AUL" placeholder="N/A">
                 <option>N/A</option>
