@@ -84,7 +84,7 @@ b, a {
 .GridLayout {
     page-break-after: always;
     width: auto;
-    font-size: .9rem;
+    font-size: .7rem;
     font-family: Arial, Helvetica, sans-serif;
     
     /* width: auto; */
@@ -179,17 +179,35 @@ align-items: center;
     justify-content: flex-end;
 }
 
+.TogglePrints {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.PrintRadio {
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.RadioDiv {
+    margin: .5rem 1rem;
+}
+
 @media print {
     * {
-        font-size: 80%;
+        font-size: 90%;
         print-color-adjust: exact;
     }
     
     .noPrint {
-        display: none;
+        display: none !important;
     }
     .IPRPrintArea {
-        padding-top: 7rem;
+        padding-top: 6rem;
         display: flex;
         flex-direction: column;
         justify-content: center;

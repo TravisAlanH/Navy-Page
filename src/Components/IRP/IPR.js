@@ -27,7 +27,7 @@ export default function IPR({
   AUL,
 }) {
   return (
-    <div className="IPRPrintArea">
+    <div className="IPRPrintArea" id="IPR">
       <div className="GridLayout">
         <div className="Department">
           <b>Department: {Department}</b>
@@ -120,7 +120,9 @@ export default function IPR({
             REQUEST MUST HAVE VALID JUSTIFICATION
           </b>
         </div>
-        <div className="JustificationData">{Just}</div>
+        <div className="JustificationData">
+          {Date} : {Just}
+        </div>
         <div className="Supplies">
           <b>SUPPLIES</b>
         </div>

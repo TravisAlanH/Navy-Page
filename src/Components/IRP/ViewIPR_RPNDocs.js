@@ -15,8 +15,54 @@ export default function ViewIPRRPNDocs() {
       )
     );
   }, []);
+
+  function PrintRPN() {
+    document.getElementById("RPN").classList.remove("noPrint");
+    document.getElementById("IPR").classList.add("noPrint");
+  }
+  function PrintIPR() {
+    document.getElementById("RPN").classList.add("noPrint");
+    document.getElementById("IPR").classList.remove("noPrint");
+  }
+  function PrintAll() {
+    document.getElementById("RPN").classList.remove("noPrint");
+    document.getElementById("IPR").classList.remove("noPrint");
+  }
+
   return (
     <div>
+      <div className="TogglePrints noPrint">
+        <div className="TogglePrintHeader">Select Documents to Print</div>
+        <div className="FlexRowCenterCenter">
+          <div className="RadioDiv">
+            <label>ALL</label>
+            <input
+              type="radio"
+              name="PrintRadio"
+              className="PrintRadio"
+              onChange={PrintAll}
+            />
+          </div>
+          <div className="RadioDiv">
+            <label>RPN</label>
+            <input
+              type="radio"
+              name="PrintRadio"
+              className="PrintRadio"
+              onChange={PrintRPN}
+            />
+          </div>
+          <div className="RadioDiv">
+            <label>OPR</label>
+            <input
+              type="radio"
+              name="PrintRadio"
+              className="PrintRadio"
+              onChange={PrintIPR}
+            />
+          </div>
+        </div>
+      </div>
       {data.map((item, index) => {
         if (item.id === "") {
           return null;
@@ -25,8 +71,8 @@ export default function ViewIPRRPNDocs() {
           return (
             <div key={index}>
               {console.log("RPN")}
-              <IPR {...item} />
-              <RPN {...item} />
+              <IPR {...item} id="IPR" />
+              <RPN {...item} id="RPN" />
             </div>
           );
         }

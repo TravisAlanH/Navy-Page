@@ -25,6 +25,7 @@ export default function RPN({
   FFS,
   HAZ,
   AUL,
+  PriorAmount,
 }) {
   let data;
   if (localStorage.getItem("NPNData") === null) {
@@ -47,11 +48,11 @@ export default function RPN({
     data = JSON.parse(localStorage.getItem("NPNData"));
   }
   return (
-    <div className="IPRPrintArea">
+    <div className="IPRPrintArea" id="RPN">
       <div className="GridLayoutRPN">
         <div className="B1"></div>
         <div className="DocN AlignEndBottom">Document Number:</div>
-        <div className="DocNPlace BorderBottom GrayLight">N62068</div>
+        <div className="DocNPlace BorderBottom GrayLight"></div>
         <div className="AmendNum BorderBottom AlignEndBottom">Amendment #:</div>
         <div className="ZeroZeroOne AlignEndBottom GrayLight">001</div>
         <div className="MPC AlignEndBottom">MPC:</div>
@@ -125,7 +126,7 @@ export default function RPN({
         <div className="B13 BorderAll AlignEndBottom GrayLight">
           Prior Funding Document Grand Total
         </div>
-        <div className="B1 BorderAll Yellow"></div>
+        <div className="B1 BorderAll Yellow">{PriorAmount}</div>
         <div className="B14 BorderAll"></div>
         <div className="B1 BorderAll AlignCenterCenter">ACRN</div>
         <div className="B1 BorderAll AlignCenterCenter">Item Number</div>
@@ -173,13 +174,17 @@ export default function RPN({
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         {/*  */}
-        <div className="B1 BorderRight"></div>
-        <div className="B1 BorderRight"></div>
-        <div className="B8 BorderAll Yellow"></div>
-        <div className="B1 BorderAll"></div>
-        <div className="B1 BorderAll Yellow"></div>
-        <div className="B1 BorderAll"></div>
-        <div className="B1 BorderAll GrayLight"></div>
+        <div className="B1 BorderRight">{data.ACRN}</div>
+        <div className="B1 BorderRight">1</div>
+        <div className="B8 BorderAll Yellow">
+          {Date} {Description}
+        </div>
+        <div className="B1 BorderAll">{UI}</div>
+        <div className="B1 BorderAll Yellow">{Qty}</div>
+        <div className="B1 BorderAll">{UP}</div>
+        <div className="B1 BorderAll GrayLight">
+          ${parseFloat(UP) * parseFloat(Qty)}
+        </div>
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
@@ -242,7 +247,7 @@ export default function RPN({
         <div className="B1 BorderRight"></div>
         <div className="B1 "></div>
         <div className="B3 AlignEndBottom">2) Transaction Type: </div>
-        <div className="B5 BorderAll Yellow"></div>
+        <div className="B5 BorderAll Yellow">Credit Card</div>
         <div className="B1 "></div>
         <div className="B1 BorderRight"></div>
         <div className="B1 Gray"></div>
@@ -325,31 +330,29 @@ export default function RPN({
         <div className="B1 AlignEndBottom">SOS:</div>
         <div className="B6 BorderBottom Yellow">{Company}</div>
         <div className="B1 AlignEndBottom">POC:</div>
-        <div className="B3 BorderBottom BorderRight Yellow"></div>
+        <div className="B3 BorderBottom BorderRight Yellow">{POC}</div>
         <div className="B1 Gray"></div>
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
         <div className="B1 AlignEndBottom">Address:</div>
-        <div className="B6 BorderBottom Yellow"></div>
+        <div className="B6 BorderBottom Yellow">{Address}</div>
         <div className="B4 BorderRight"></div>
         <div className="B1 Gray"></div>
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
-        <div className="B1 AlignEndBottom">City:</div>
-        <div className="B3 BorderBottom Yellow"></div>
-        <div className="B1 AlignEndBottom">State:</div>
-        <div className="B2 BorderBottom Yellow"></div>
+        <div className="B1 AlignEndBottom">City / State:</div>
+        <div className="B6 BorderBottom Yellow">{State}</div>
         <div className="B4 BorderRight"></div>
         <div className="B1 Gray"></div>
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
         <div className="B1 AlignEndBottom ">Zip:</div>
-        <div className="B2 BorderBottom Yellow"></div>
+        <div className="B2 BorderBottom Yellow">{Zip}</div>
         <div className="B1 AlignEndBottom ">Phone:</div>
-        <div className="B3 BorderBottom"></div>
+        <div className="B3 BorderBottom">{Phone}</div>
         <div className="B4 BorderRight"></div>
         <div className="B1 Gray"></div>
         {/*  */}
@@ -358,7 +361,7 @@ export default function RPN({
         </div>
         <div className="B1 GrayLight"></div>
         {/*  */}
-        <div className="B2 AlignEndBottom"> Deptartment Head: </div>
+        <div className="B2 AlignEndBottom"> Department Head: </div>
         <div className="B11 BorderBottom BorderRight"></div>
         <div className="B1"></div>
         {/*  */}
