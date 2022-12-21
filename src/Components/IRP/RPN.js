@@ -28,7 +28,7 @@ export default function RPN({
   PriorAmount,
 }) {
   let data;
-  if (localStorage.getItem("NPNData") === null) {
+  if (localStorage.getItem("RPN") === null) {
     data = {
       ACRN: "",
       GA: "",
@@ -45,7 +45,7 @@ export default function RPN({
       COSTCOST: "",
     };
   } else {
-    data = JSON.parse(localStorage.getItem("NPNData"));
+    data = JSON.parse(localStorage.getItem("RPN"));
   }
   return (
     <div className="IPRPrintArea" id="RPN">

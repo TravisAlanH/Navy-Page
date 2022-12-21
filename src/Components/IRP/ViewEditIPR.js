@@ -122,7 +122,7 @@ export default function ViewEditIPR({
                 type="text"
                 className="IPRData2"
                 name="WEB"
-                placeholder={WEB}
+                defaultValue={WEB}
               />
               <label className="IPRLabelDataInput">POC</label>
               <input

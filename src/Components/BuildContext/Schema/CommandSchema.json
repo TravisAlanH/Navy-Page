@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+      "Command": {
+        "type": "string"
+      },
+      "Address": {
+        "type": "string"
+      },
+      "State": {
+        "type": "string"
+      },
+      "Zip": {
+        "type": "string"
+      },
+      "Phone": {
+        "type": "string"
+      },
+      "POC": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "Command",
+      "Address",
+      "State",
+      "Zip",
+      "Phone",
+      "POC"
+    ]
+  }

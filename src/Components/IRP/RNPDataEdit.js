@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function RNPDataEdit() {
   let data;
-  if (localStorage.getItem("NPNData") === null) {
+  if (localStorage.getItem("RPN") === null) {
     data = {
       ACRN: "",
       GA: "",
@@ -20,7 +20,7 @@ export default function RNPDataEdit() {
       COSTCOST: "",
     };
   } else {
-    data = JSON.parse(localStorage.getItem("NPNData"));
+    data = JSON.parse(localStorage.getItem("RPN"));
   }
 
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ export default function RNPDataEdit() {
     data.COSTCOST = e.target.elements.COSTCOST.value;
 
     let testData = data;
-    localStorage.setItem("NPNData", JSON.stringify(testData));
+    localStorage.setItem("RPN", JSON.stringify(testData));
 
     navigate(0);
   }

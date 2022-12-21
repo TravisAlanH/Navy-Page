@@ -37,6 +37,9 @@ export default function TopNavItem() {
         <button className="DropBTN">Vendor Links</button>
         <div className="DropDownContent">
           {vendors.map((item, index) => {
+            if (item.WEB === "") {
+              return null;
+            }
             return (
               <a
                 className="NavListItemLink"

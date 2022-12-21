@@ -1,0 +1,120 @@
+{
+    "type": "array",
+    "items": [
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Company": {
+            "type": "string"
+          },
+          "POC": {
+            "type": "string"
+          },
+          "Address": {
+            "type": "string"
+          },
+          "Address2": {
+            "type": "string"
+          },
+          "State": {
+            "type": "string"
+          },
+          "Zip": {
+            "type": "string"
+          },
+          "Phone": {
+            "type": "string"
+          },
+          "Qty": {
+            "type": "string"
+          },
+          "UI": {
+            "type": "string"
+          },
+          "UP": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Priority": {
+            "type": "string"
+          },
+          "Department": {
+            "type": "string"
+          },
+          "Date": {
+            "type": "string"
+          },
+          "Just": {
+            "type": "string"
+          },
+          "OF": {
+            "type": "string"
+          },
+          "IJS": {
+            "type": "string"
+          },
+          "WS": {
+            "type": "string"
+          },
+          "F": {
+            "type": "string"
+          },
+          "PS": {
+            "type": "string"
+          },
+          "FFS": {
+            "type": "string"
+          },
+          "HAZ": {
+            "type": "string"
+          },
+          "AUL": {
+            "type": "string"
+          },
+          "TYPE": {
+            "type": "string"
+          },
+          "PriorAmount": {
+            "type": "string"
+          },
+          "WEB": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "Company",
+          "POC",
+          "Address",
+          "Address2",
+          "State",
+          "Zip",
+          "Phone",
+          "Qty",
+          "UI",
+          "UP",
+          "Description",
+          "Priority",
+          "Department",
+          "Date",
+          "Just",
+          "OF",
+          "IJS",
+          "WS",
+          "F",
+          "PS",
+          "FFS",
+          "HAZ",
+          "AUL",
+          "TYPE",
+          "PriorAmount",
+          "WEB"
+        ]
+      }
+    ]
+  }
