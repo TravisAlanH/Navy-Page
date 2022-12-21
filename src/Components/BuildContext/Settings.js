@@ -18,7 +18,12 @@ export default function Settings() {
     navigate(0);
   }
 
-  let loadData = JSON.parse(localStorage.getItem("Command"));
+  let PlaceHolder = {};
+  CommandArray.forEach((element) => {
+    PlaceHolder[element] = "";
+  });
+
+  let loadData = JSON.parse(localStorage.getItem("Command")) || PlaceHolder;
   console.log(loadData);
 
   return (
