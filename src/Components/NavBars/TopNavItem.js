@@ -1,38 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NavDrop from "./NavDrop";
 
 export default function TopNavItem() {
+  const drop = [
+    {
+      "Title": "Continuing Services",
+      "Content": [
+        {
+          "Title": "Vendor List",
+          "Link": "/IPR_List",
+        },
+        {
+          "Title": "Print Documents",
+          "Link": "/View_IPRRPN_Docs",
+        },
+        {
+          "Title": "Edit RPN Funding",
+          "Link": "/RPN_edit",
+        },
+      ],
+    },
+    {
+      "Title": "Settings",
+      "Content": [
+        {
+          "Title": "Command",
+          "Link": "/Settings",
+        },
+        {
+          "Title": "Data",
+          "Link": "/Data",
+        },
+      ],
+    },
+  ];
   let vendors = JSON.parse(localStorage.getItem("ContinuingServices")) || [];
   return (
     <div className="NavBar">
-      {/* DROP */}
-      <div className="DropDown">
-        <button className="DropBTN">Continuing Services</button>
-        <div className="DropDownContent">
-          <Link to="/IPR_List" className="NavListItemLink">
-            Vendor List
-          </Link>
-          <Link to="/View_IPRRPN_Docs" className="NavListItemLink">
-            Print Documents
-          </Link>
-          <Link to="/RPN_edit" className="NavListItemLink">
-            Edit RPN Funding
-          </Link>
-        </div>
-      </div>
-      {/* DROP */}
-      <div className="DropDown">
-        <button className="DropBTN">Settings</button>
-        <div className="DropDownContent">
-          <Link to="/Settings" className="NavListItemLink">
-            Command
-          </Link>
-          <Link to="/Data" className="NavListItemLink">
-            Data
-          </Link>
-        </div>
-      </div>
-      {/* DROP */}
+      {drop.map((item, index) => {
+        return <NavDrop {...item} key={index} />;
+      })}
+
       <div className="DropDown">
         <button className="DropBTN">Vendor Links</button>
         <div className="DropDownContent">

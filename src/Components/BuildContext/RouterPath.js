@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import HomePage from "../HomePage";
 import RNPDataEdit from "../IRP/RNPDataEdit";
 import ViewIPRList from "../IRP/ViewIPRList";
 import ViewIPRRPNDocs from "../IRP/ViewIPR_RPNDocs";
@@ -10,7 +11,8 @@ export default function RouterPath() {
   let location = useLocation();
   return (
     <Routes location={location} key={location.pathname}>
-      <Route path="/" element={<Navigate replace to="/home" />} />
+      <Route path="/" element={<Navigate replace to="/Home" />} />
+      <Route exact path="/Home" element={<HomePage />}></Route>
       <Route exact path="/IPR_List" element={<ViewIPRList />}></Route>
       <Route
         exact

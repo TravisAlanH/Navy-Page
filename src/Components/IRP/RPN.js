@@ -47,6 +47,7 @@ export default function RPN({
   } else {
     data = JSON.parse(localStorage.getItem("RPN"));
   }
+  let Command = JSON.parse(localStorage.getItem("Command"));
   return (
     <div className="IPRPrintArea" id="RPN">
       <div className="GridLayoutRPN">
@@ -183,7 +184,7 @@ export default function RPN({
         <div className="B1 BorderAll Yellow">{Qty}</div>
         <div className="B1 BorderAll">{UP}</div>
         <div className="B1 BorderAll GrayLight">
-          ${parseFloat(UP) * parseFloat(Qty)}
+          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
         </div>
         {/*  */}
         <div className="B1 BorderRight"></div>
@@ -256,7 +257,7 @@ export default function RPN({
         <div className="B1 BorderRight"></div>
         <div className="B1 "></div>
         <div className="B3 AlignEndBottom"> 3) Card Holder: </div>
-        <div className="B5 BorderAll Yellow"></div>
+        <div className="B5 BorderAll Yellow">{Command.POC}</div>
         <div className="B1 "></div>
         <div className="B1 BorderRight"></div>
         <div className="B1 Gray"></div>
@@ -359,7 +360,9 @@ export default function RPN({
         <div className="B13 BorderTop BorderRight AlignEndBottom">
           Line Item Page Total:
         </div>
-        <div className="B1 GrayLight"></div>
+        <div className="B1 GrayLight">
+          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
+        </div>
         {/*  */}
         <div className="B2 AlignEndBottom"> Department Head: </div>
         <div className="B11 BorderBottom BorderRight"></div>
@@ -372,7 +375,9 @@ export default function RPN({
           <span>Date</span>
         </div>
         <div className="B1 BorderRight AlignEndBottom">Grand Total:</div>
-        <div className="B1 GrayLight"></div>
+        <div className="B1 GrayLight">
+          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
+        </div>
         {/*  */}
         <div className="B2 AlignEndBottom"> Funds Approver: </div>
         <div className="B10 BorderBottom BorderRight Yellow"></div>
@@ -388,7 +393,9 @@ export default function RPN({
         <div className="B1 BorderBottom BorderRight AlignEndBottom">
           Cumulative Total:
         </div>
-        <div className="B1 GrayLight"></div>
+        <div className="B1 GrayLight">
+          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
+        </div>
         <div className="B14 BorderTop FlexRowCenterCenter">
           <span>PREVIOUS EDITION IS OBSOLETE</span>
         </div>

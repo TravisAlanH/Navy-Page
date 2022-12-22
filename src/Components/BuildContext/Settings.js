@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import LabelWInput from "../BaseComponents/LabelWInput";
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -24,23 +25,13 @@ export default function Settings() {
   });
 
   let loadData = JSON.parse(localStorage.getItem("Command")) || PlaceHolder;
-  console.log(loadData);
 
   return (
     <div className="FlexColCenterCenter">
       <form onSubmit={HandleSubmit}>
         {CommandArray.map((item, index) => {
-          return (
-            <div className="FlexRowCenterEnd" key={index}>
-              <label>{item}</label>
-              <input
-                type="text"
-                id={item}
-                placeholder={item}
-                defaultValue={Object.values(loadData)[index]}
-              />
-            </div>
-          );
+          let load = Object.values(loadData)[index];
+          return <LabelWInput command={item} dataInput={load} key={index} />;
         })}
         <input type={"submit"} />
       </form>

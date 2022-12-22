@@ -24,7 +24,6 @@ export default function Data() {
 
   function SaveData(data, location, Schema) {
     var inputText = document.getElementById(data).value;
-    console.log(inputText);
 
     const validate = ajv.compile(Schema);
 
@@ -32,16 +31,6 @@ export default function Data() {
       alert(
         "Data is NOT Valid Please Check Input File and Try again : NO DATA SAVED"
       );
-      navigate(0);
-      return;
-    }
-
-    console.log(inputText);
-    if (inputText === "") {
-      alert(
-        "Data is NOT Valid Please Check Input File and Try again : NO DATA SAVEDdddddd"
-      );
-      localStorage.removeItem(location);
       navigate(0);
       return;
     }

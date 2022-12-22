@@ -26,6 +26,7 @@ export default function IPR({
   HAZ,
   AUL,
 }) {
+  let Command = JSON.parse(localStorage.getItem("Command"));
   return (
     <div className="IPRPrintArea" id="IPR">
       <div className="GridLayout">
@@ -65,7 +66,9 @@ export default function IPR({
         <div className="Data14">{Qty}</div>
         <div className="Data15">{UP}</div>
         <div className="Data16">{UI}</div>
-        <div className="Data17">${parseFloat(UP) * parseFloat(Qty)}</div>
+        <div className="Data17">
+          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
+        </div>
         <div className="Data21"></div>
         <div className="Data22"></div>
         <div className="Data23"></div>
@@ -94,27 +97,31 @@ export default function IPR({
         <div className="Grand">
           <b>Grand Total:</b>
         </div>
-        <div className="GrandTotal">${parseFloat(UP) * parseFloat(Qty)}</div>
+        <div className="GrandTotal">
+          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
+        </div>
         <div className="SourceTo">
-          <b>Source To:</b>
+          <b>Source To: {Company}</b>
         </div>
         <div className="ShipTo">
-          <b>Ship To:</b>
+          <b>Ship To: {Command.Command}</b>
         </div>
         <div className="POC">POC:</div>
         <div className="POCData">{POC}</div>
         <div className="Name">Name:</div>
-        <div className="NameData"></div>
+        <div className="NameData">{Command.POC}</div>
         <div className="Address">Address:</div>
         <div className="AddressData">
           {Address}, {Address2}, {State}, {Zip}
         </div>
         <div className="ToAddress">Address:</div>
-        <div className="ToAddressData"></div>
+        <div className="ToAddressData">
+          {Command.Address}, {Command.State}, {Command.Zip}
+        </div>
         <div className="Phone">Phone #:</div>
         <div className="PhoneData">{Phone}</div>
         <div className="ToPhone">Phone #:</div>
-        <div className="ToPhoneData"></div>
+        <div className="ToPhoneData">{Command.Phone}</div>
         <div className="RequestJustification">
           <b style={{ "color": "red", "fontSize": "1rem" }}>
             REQUEST MUST HAVE VALID JUSTIFICATION
@@ -171,22 +178,22 @@ export default function IPR({
             SCREENED FOR AVAILABILITY FROM MANDATORY SOURCES (FAR PARA 8.001)
           </b>
         </div>
-        <div className="ScreeningSection2">
+        <div className="ScreeningSection2 FlexRowCenterCenter">
           <b style={{ "fontSize": ".9rem" }}>Mandatory Sources of Supply</b>
         </div>
-        <div className="ScreeningSection3">
-          <b>Websites for Screening</b>
+        <div className="ScreeningSection3 FlexRowCenterCenter">
+          <b style={{ "fontSize": ".9rem" }}>Websites for Screening</b>
         </div>
-        <div className="ScreeningSection4">
-          <b>Status</b>
+        <div className="ScreeningSection4 FlexRowCenterCenter">
+          <b style={{ "fontSize": ".9rem" }}>Status</b>
         </div>
         <div className="ScreeningSection2">
           Office Supplies: AbilityOne Office Supplies from FEDMALL or a local
           Servmart
         </div>
-        <div className="ScreeningSection3">
-          <a href=" ">
-            https://www.restricted.fedmall.mil/webapp/wcs/stores/ servlet/en/fśŕ
+        <div className="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" " style={{ "fontSize": ".7rem" }}>
+            https://www.restricted.fedmall.mil/webapp/wcs/stores/servlet/en/fśŕ
           </a>
         </div>
         <div className="ScreeningSection4">{OF}</div>
@@ -194,39 +201,37 @@ export default function IPR({
           Incidental Janitorial and Sanitation Supplies: AbilityOne Office
           Supplies from FEDMALL
         </div>
-        <div className="ScreeningSection3">
-          <a href=" ">
-            https://www.restricted.fedmall.mil/webapp/wcs/stores/ servlet/en/fśŕ
+        <div className="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" " style={{ "fontSize": ".7rem" }}>
+            https://www.restricted.fedmall.mil/webapp/wcs/stores/servlet/en/fśŕ
           </a>
         </div>
         <div className="ScreeningSection4">{IJS}</div>
         <div className="ScreeningSection2">
           Wireless Services: NAVSUP FLC ‐ San Diego (DON Wireless Contract)
         </div>
-        <div className="ScreeningSection3">
-          <a href=" ">
-            https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?
-            _afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%
-            3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114
+        <div className="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" " style={{ "fontSize": ".7rem" }}>
+            https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?_afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114
           </a>
         </div>
         <div className="ScreeningSection4">{WS}</div>
         <div className="ScreeningSection2">
           Furniture: NAVSUP FLC ‐ Norfolk BPA
         </div>
-        <div className="ScreeningSection3">
-          <a href=" ">
-            https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?
-            _afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%
-            3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114
+        <div className="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" " style={{ "fontSize": ".7rem" }}>
+            https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?_afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114
           </a>
         </div>
         <div className="ScreeningSection4">{F}</div>
         <div className="ScreeningSection2">
           Printing Services: DLA Document Services
         </div>
-        <div className="ScreeningSection3">
-          <a href=" ">https://dso.dla.mil/DSF/storefront.aspx</a>
+        <div className="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" " style={{ "fontSize": ".7rem" }}>
+            https://dso.dla.mil/DSF/storefront.aspx
+          </a>
         </div>
         <div className="ScreeningSection4">{PS}</div>
         <div className="ScreeningSection22">

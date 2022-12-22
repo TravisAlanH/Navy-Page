@@ -1,13 +1,14 @@
 import React from "react";
-import ViewIPRList from "./IRP/ViewIPRList";
-import TopNav from "./NavBars/TopNav";
+// import ViewIPRList from "./IRP/ViewIPRList";
+// import TopNav from "./NavBars/TopNav";
+import Map from "../Img/Navy Reserve Force Map 2022.png";
+
+//
 
 export default function HomePage() {
   return (
-    <div>
-      <div className="UnderNav"></div>
-      <TopNav />
-      <ViewIPRList />
+    <div className="HomeDiv">
+      <img src={Map} alt="" className="MapImg" />
     </div>
   );
 }
