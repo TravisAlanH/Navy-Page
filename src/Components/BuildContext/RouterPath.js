@@ -4,6 +4,7 @@ import HomePage from "../HomePage";
 import RNPDataEdit from "../IRP/RNPDataEdit";
 import ViewIPRList from "../IRP/ViewIPRList";
 import ViewIPRRPNDocs from "../IRP/ViewIPR_RPNDocs";
+import Todo from "../Todo";
 import Data from "./Data";
 import Settings from "./Settings";
 
@@ -13,6 +14,8 @@ export default function RouterPath() {
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<Navigate replace to="/Home" />} />
       <Route exact path="/Home" element={<HomePage />}></Route>
+      <Route exact path="/Todo" element={<Todo />}></Route>
+
       <Route exact path="/IPR_List" element={<ViewIPRList />}></Route>
       <Route
         exact

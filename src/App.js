@@ -4,6 +4,8 @@ import "./Styles/Nav.css";
 import "./Styles/RPN.css";
 import "./Styles/Data.css";
 import "./Styles/Home.css";
+import "./Styles/Todo.css";
+
 // import HomePage from "./Components/HomePage";
 import { BrowserRouter as Router } from "react-router-dom";
 import TopNav from "./Components/NavBars/TopNav";
