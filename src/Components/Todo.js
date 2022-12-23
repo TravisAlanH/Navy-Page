@@ -32,8 +32,6 @@ export default function Todo() {
     return ((n % 7) + 7) % 7;
   }
 
-  //   today.setDate(31);
-
   console.log(month);
 
   let DateArray = [
