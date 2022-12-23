@@ -34,6 +34,8 @@ export default function Todo() {
 
   //   today.setDate(31);
 
+  console.log(month);
+
   let DateArray = [
     today.getDate() - 2,
     today.getDate() - 1,
