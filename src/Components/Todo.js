@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Todo() {
+  const [adjustDate, setAdjustDate] = useState(0);
+
   var month = [
     "January",
     "February",
@@ -15,6 +17,7 @@ export default function Todo() {
     "November",
     "December",
   ];
+
   var days = [
     "Sunday",
     "Monday",
@@ -26,65 +29,53 @@ export default function Todo() {
   ];
 
   const today = new Date();
-  const test = new Date();
 
-  console.log(
-    today.toISOString().split("T")[0].replace(/-/g, "/") ===
-      test.toISOString().split("T")[0].replace(/-/g, "/")
-  );
+  today.setDate(today.getDate() + adjustDate);
 
   const yesterdayTwo = new Date();
   yesterdayTwo.setDate(today.getDate() - 2);
   const yesterday = new Date();
   yesterday.setDate(today.getDate() - 1);
+  const currentDate = new Date();
+  currentDate.setDate(today.getDate() + 0);
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
   const tomorrowTwo = new Date();
   tomorrowTwo.setDate(today.getDate() + 2);
 
-  function mod(n) {
-    return ((n % 7) + 7) % 7;
+  let DateArray = [yesterdayTwo, yesterday, currentDate, tomorrow, tomorrowTwo];
+
+  function handleYesterday() {
+    setAdjustDate(adjustDate - 1);
   }
-
-  let DateArray = [yesterdayTwo, yesterday, today, tomorrow, tomorrowTwo];
-
-  let DateName = [];
-
-  DateArray.map((item, index) => {
-    return DateName.push(days[mod(item.getDate())]);
-  });
-
-  let offset = [-1, 0, 0, 0, 1];
-
-  DateArray.map((item, index) => {
-    const lastDateCurrent = new Date();
-    const adjustDate = new Date();
-    adjustDate.setDate(1);
-    adjustDate.setHours(-1);
-    lastDateCurrent.setMonth(lastDateCurrent.getMonth() + 1);
-    lastDateCurrent.setDate(1);
-    lastDateCurrent.setHours(-1);
-    if (item < 0) {
-      return (DateArray[index] = adjustDate.getDate() + offset[index]);
-    }
-    if (item === 0) {
-      return (DateArray[index] = adjustDate.getDate());
-    }
-    if (item > lastDateCurrent.getDate()) {
-      lastDateCurrent.setMonth(lastDateCurrent.getMonth() + 1);
-      lastDateCurrent.setDate(1);
-      return (DateArray[index] = lastDateCurrent.getDate() + offset[index]);
-    }
-    return DateArray[index];
-  });
-
-  // console.log(DateName);
-
-  // console.log(DateArray);
+  function handleTomorrow() {
+    setAdjustDate(adjustDate + 1);
+  }
+  function handleCurrent() {
+    setAdjustDate(0);
+  }
 
   return (
     <div className="FlexRowCenterCenter">
-      {/* <div>{days[mod(date.getDate() + offset[0])]} </div> */}
+      <div className="CalDisplay FlexColCenterCenter">
+        <div className="MonthText">{month[today.getMonth()]}</div>
+        <button onClick={handleYesterday}>Yesterday</button>
+        <button onClick={handleTomorrow}>Tomorrow</button>
+        <button onClick={handleCurrent}>Current</button>
+
+        <div className="CalBoxDiv FlexRowCenterCenter">
+          {DateArray.map((item, index) => {
+            return (
+              <div className="CalBox">
+                <div className="Header">
+                  <div className="DayNumber">{item.getDate()}</div>
+                  <div className="DayText">{days[item.getDay()]}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
