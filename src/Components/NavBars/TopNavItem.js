@@ -1,12 +1,16 @@
 import React from "react";
 import NavDrop from "./NavDrop";
 
-let Command = JSON.parse(localStorage.getItem("Command"));
+let Command = JSON.parse(localStorage.getItem("Command")) || {
+  "Command": "Command Name",
+};
 
 export default function TopNavItem() {
   let drop = [
     {
-      "Title": Command.Command,
+      // "Title": Command.Command,
+      "Title": "Command",
+
       "Content": [
         {
           "Title": "Home",
