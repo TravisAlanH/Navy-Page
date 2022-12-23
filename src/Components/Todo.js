@@ -26,30 +26,33 @@ export default function Todo() {
   ];
 
   const today = new Date();
+  const test = new Date();
+
+  console.log(
+    today.toISOString().split("T")[0].replace(/-/g, "/") ===
+      test.toISOString().split("T")[0].replace(/-/g, "/")
+  );
+
+  const yesterdayTwo = new Date();
+  yesterdayTwo.setDate(today.getDate() - 2);
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+  const tomorrowTwo = new Date();
+  tomorrowTwo.setDate(today.getDate() + 2);
 
   function mod(n) {
-    console.log(n);
     return ((n % 7) + 7) % 7;
   }
 
-  console.log(month);
+  let DateArray = [yesterdayTwo, yesterday, today, tomorrow, tomorrowTwo];
 
-  let DateArray = [
-    today.getDate() - 2,
-    today.getDate() - 1,
-    today.getDate(),
-    today.getDate() + 1,
-    today.getDate() + 2,
-  ];
+  let DateName = [];
 
-  let DateName = [
-    days[mod(today.getDay() - 2)],
-    days[mod(today.getDay() - 1)],
-    days[mod(today.getDay())],
-    days[mod(today.getDay() + 1)],
-    days[mod(today.getDay() + 2)],
-  ];
-  console.log(DateName);
+  DateArray.map((item, index) => {
+    return DateName.push(days[mod(item.getDate())]);
+  });
 
   let offset = [-1, 0, 0, 0, 1];
 
@@ -75,7 +78,9 @@ export default function Todo() {
     return DateArray[index];
   });
 
-  console.log(DateArray);
+  // console.log(DateName);
+
+  // console.log(DateArray);
 
   return (
     <div className="FlexRowCenterCenter">

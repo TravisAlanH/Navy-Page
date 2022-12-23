@@ -2,7 +2,7 @@ import React from "react";
 import NavDrop from "./NavDrop";
 
 let Command = JSON.parse(localStorage.getItem("Command")) || {
-  "Command": "NRC Siouxm Falls",
+  "Command": "Command",
 };
 
 export default function TopNavItem() {
