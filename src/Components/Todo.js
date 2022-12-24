@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import LabelWInput from "./BaseComponents/LabelWInput";
 import { useNavigate } from "react-router-dom";
+import { add } from "date-fns";
 
 export default function Todo() {
   const navigate = useNavigate();
@@ -32,50 +33,35 @@ export default function Todo() {
     "Saturday",
   ];
 
-  // function formatDate(date) {
-  //   var d = new Date(date),
-  //     month = "" + (d.getMonth() + 1),
-  //     day = "" + d.getDate(),
-  //     year = d.getFullYear();
+  function formatDate(date) {
+    var d = new Date(date),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
 
-  //   if (month.length < 2) month = "0" + month;
-  //   if (day.length < 2) day = "0" + day;
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
 
-  //   return [year, month, day].join("-");
-  // }
+    return [year, month, day].join("-");
+  }
 
-  const today = new Date();
-
-  today.setDate(today.getDate() + adjustDate);
-
-  const yesterdayTwo = new Date();
-  yesterdayTwo.setDate(today.getDate() - 2);
-  const yesterday = new Date();
-  yesterday.setDate(today.getDate() - 1);
-  const currentDate = new Date();
-  currentDate.setDate(today.getDate() + 0);
-  const tomorrow = new Date();
-  tomorrow.setDate(today.getDate() + 1);
-  const tomorrowTwo = new Date();
-  tomorrowTwo.setDate(today.getDate() + 2);
+  let today = new Date();
+  today = add(today, { days: adjustDate });
+  const currentDate = add(today, { days: 0 });
+  const yesterday = add(today, { days: -1 });
+  const tomorrow = add(today, { days: 1 });
+  const yesterdayTwo = add(today, { days: -2 });
+  const tomorrowTwo = add(today, { days: 2 });
 
   let DateArray = [yesterdayTwo, yesterday, currentDate, tomorrow, tomorrowTwo];
 
-  function handleYesterday() {
-    setAdjustDate(adjustDate - 1);
-  }
-  function handleTomorrow() {
-    setAdjustDate(adjustDate + 1);
-  }
-  function handleCurrent() {
-    setAdjustDate(0);
-  }
-
   const NewEvent = ["Task", "Comments", "Email"];
-  let data = { "ID": uuid() };
+  let data = {};
+  let event = JSON.parse(localStorage.getItem("TodoList")) || [];
 
   function AddTask(e) {
     e.preventDefault();
+    data["ID"] = uuid();
 
     NewEvent.forEach((element) => {
       data[element] = document.getElementById(element).value;
@@ -83,6 +69,9 @@ export default function Todo() {
     });
     data["Date"] = document.getElementById("Date").value;
     navigate(0);
+    event.push(data);
+    localStorage.setItem("TodoList", JSON.stringify(event));
+    console.log(JSON.parse(localStorage.getItem("TodoList")));
   }
 
   let PlaceHolder = {};
@@ -95,18 +84,54 @@ export default function Todo() {
       <div className="FlexRowCenterCenter">
         <div className="CalDisplay FlexColCenterCenter">
           <div className="MonthText">{month[today.getMonth()]}</div>
-          <button onClick={handleYesterday}>Yesterday</button>
-          <button onClick={handleTomorrow}>Tomorrow</button>
-          <button onClick={handleCurrent}>Current</button>
+          <button
+            onClick={() => {
+              setAdjustDate(adjustDate - 1);
+            }}
+          >
+            Yesterday
+          </button>
+          <button
+            onClick={() => {
+              setAdjustDate(adjustDate + 1);
+            }}
+          >
+            Tomorrow
+          </button>
+          <button
+            onClick={() => {
+              setAdjustDate(0);
+            }}
+          >
+            Current
+          </button>
 
           <div className="CalBoxDiv FlexRowCenterCenter">
             {DateArray.map((item, index) => {
               return (
                 <div className="CalBox" key={index}>
                   <div className="Header">
-                    <div className="DayNumber">{item.getDate()}</div>
-                    <div className="DayText">{days[item.getDay()]}</div>
-                    {/* map over "event" localStorage Save, if formattedDate(item.toISOString) === event.Date return jsx Element */}
+                    <div className="DayNumber">
+                      {month[item.getMonth()]}
+                      {item.getDate()}
+                    </div>
+                    <div className="DayText">{days[item.getDay()]} </div>
+                    {event.map((event, index) => {
+                      if (event.Date === formatDate(item.toISOString())) {
+                        return (
+                          <div key={index} className="EventItem">
+                            <div className="EventType">
+                              <span
+                                className="Dot"
+                                style={{ backgroundColor: "red" }}
+                              ></span>
+                            </div>
+                            <div className="EventContent">{event.Task}</div>
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
                   </div>
                 </div>
               );

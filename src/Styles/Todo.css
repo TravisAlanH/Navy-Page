@@ -11,6 +11,19 @@
   flex-direction: column;
 }
 
+.EventItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.Dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .CalBoxDiv {
   gap: 1rem;
 }
