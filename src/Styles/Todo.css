@@ -12,8 +12,39 @@
 }
 
 .EventItem {
+  width: 100%;
+  outline: 1px solid black;
+  max-height: 3rem;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  transition: all 500ms ease-in-out;
+}
+.EventItem:hover {
+  max-height: 20rem;
+}
+
+.EventType {
+  width: 10%;
+}
+
+.EventName {
+  width: 90%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+}
+.Done {
+  float: right;
+}
+
+.EventContent {
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 }
 

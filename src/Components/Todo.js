@@ -68,6 +68,7 @@ export default function Todo() {
       document.getElementById(element).value = "";
     });
     data["Date"] = document.getElementById("Date").value;
+    data["Color"] = document.getElementById("Color").value;
     navigate(0);
     event.push(data);
     localStorage.setItem("TodoList", JSON.stringify(event));
@@ -123,10 +124,18 @@ export default function Todo() {
                             <div className="EventType">
                               <span
                                 className="Dot"
-                                style={{ backgroundColor: "red" }}
+                                style={{ backgroundColor: event.Color }}
                               ></span>
                             </div>
-                            <div className="EventContent">{event.Task}</div>
+                            <div className="EventContent">
+                              <div className="EventName">
+                                <h5>{event.Task}</h5>{" "}
+                                <button className="Done">asdf</button>
+                              </div>
+                              <div className="EventText">asdf</div>
+                              <div className="EventText">asdf</div>
+                              <div className="EventText">asdf</div>
+                            </div>
                           </div>
                         );
                       }
@@ -144,7 +153,8 @@ export default function Todo() {
           {NewEvent.map((item, index) => {
             return <LabelWInput command={item} dataInput={""} key={index} />;
           })}{" "}
-          <input type={"date"} id="Date" />
+          <input type={"date"} id="Date" placeholder="DD-MMM-YYYY" />
+          <input type={"color"} id="Color" />
           <input type={"submit"} />
         </form>
       </div>
