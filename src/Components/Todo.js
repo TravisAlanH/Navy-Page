@@ -81,27 +81,30 @@ export default function Todo() {
     data["Color"] = document.getElementById("Color").value;
     event.push(data);
     localStorage.setItem("TodoList", JSON.stringify(event));
-    console.log(JSON.parse(localStorage.getItem("TodoList")));
     setRerender(!rerender);
   }
 
   function EditTask(e) {
     e.preventDefault();
+    // console.log(document.getElementById("NewID").value, "asdfasdf");
+    console.log(e.target.elements.NewID.value);
 
     // NewEvent.forEach((element) => {
     //   data[element] = document.getElementById("New" + element).value;
     // });
     event.map((item) => {
-      if (document.getElementById("NewID").value === item.ID) {
+      if (e.target.elements.NewID.value === item.ID) {
         // item["Checked"] = item.Checked;
-        item["Color"] = document.getElementById("NewColor").value;
-        item["Comment"] = document.getElementById("NewComment").value;
-        item["Date"] = document.getElementById("NewDate").value;
+        item.Color = e.target.elements.NewColor.value;
+        item.Comment = e.target.elements.NewComment.value;
+        item.Date = e.target.elements.NewDate.value;
         // item["Dot"] = item.Dot;
-        item["Edit"] = "none";
-        item["Email"] = document.getElementById("NewEmail").value;
-        // item["ID"] = item.ID;
-        item["Task"] = document.getElementById("NewTask").value;
+        // item["Edit"] = "none";
+        item.Email = e.target.elements.NewEmail.value;
+        item.ID = e.target.elements.NewID.value;
+        item.Task = e.target.elements.NewTask.value;
+        item.Edit = "none";
+        setRerender(!rerender);
       }
       return item;
     });
@@ -295,14 +298,14 @@ export default function Todo() {
                                   <label>Edit Name</label>
                                   <input
                                     type="text"
-                                    id={"NewTask"}
+                                    name={"NewTask"}
                                     defaultValue={event.Task}
                                   />
                                 </div>
                                 <div className="FlexRowCenterEnd">
                                   <label>Edit Comment</label>
                                   <textarea
-                                    id={"NewComment"}
+                                    name={"NewComment"}
                                     defaultValue={event.Comment}
                                     rows="4"
                                     cols="25"
@@ -313,19 +316,19 @@ export default function Todo() {
                                   <label>Edit Email</label>
                                   <input
                                     type="text"
-                                    id={"NewEmail"}
+                                    name={"NewEmail"}
                                     defaultValue={event.Email}
                                   />
                                 </div>
                                 <input
                                   type={"date"}
-                                  id="NewDate"
+                                  name="NewDate"
                                   placeholder="DD-MMM-YYYY"
                                   defaultValue={event.Date}
                                 />
                                 <input
                                   type={"text"}
-                                  id={"NewID"}
+                                  name="NewID"
                                   defaultValue={event.ID}
                                   style={{
                                     display: "none",
@@ -333,7 +336,7 @@ export default function Todo() {
                                 />
                                 <input
                                   type={"color"}
-                                  id="NewColor"
+                                  name="NewColor"
                                   defaultValue={event.Color}
                                 />
                                 <input type={"submit"} />

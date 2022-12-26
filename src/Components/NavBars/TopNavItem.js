@@ -8,7 +8,8 @@ let Command = JSON.parse(localStorage.getItem("Command")) || {
 export default function TopNavItem() {
   let drop = [
     {
-      "Title": Command.Command,
+      "Title": Command.Command || "Command",
+      "Type": "",
       "Content": [
         {
           "Title": "Home",
@@ -22,6 +23,7 @@ export default function TopNavItem() {
     },
     {
       "Title": "Continuing Services",
+      "Type": "",
       "Content": [
         {
           "Title": "Vendor List",
@@ -38,14 +40,20 @@ export default function TopNavItem() {
       ],
     },
     {
+      "Title": "Vendor Linksss",
+      "Type": "Vendors",
+      "Content": [],
+    },
+    {
       "Title": "Settings",
+      "Type": "",
       "Content": [
         {
-          "Title": "Command",
+          "Title": "Edit Command",
           "Link": "/Settings",
         },
         {
-          "Title": "Data",
+          "Title": "Page Data",
           "Link": "/Data",
         },
       ],
@@ -57,28 +65,6 @@ export default function TopNavItem() {
       {drop.map((item, index) => {
         return <NavDrop {...item} key={index} />;
       })}
-
-      <div className="DropDown">
-        <button className="DropBTN">Vendor Links</button>
-        <div className="DropDownContent">
-          {vendors.map((item, index) => {
-            if (item.WEB === "") {
-              return null;
-            }
-            return (
-              <a
-                className="NavListItemLink"
-                href={"https://" + item.WEB}
-                target="_blank"
-                rel="noreferrer"
-                key={index}
-              >
-                {item.Company}
-              </a>
-            );
-          })}
-        </div>
-      </div>
     </div>
   );
 }
