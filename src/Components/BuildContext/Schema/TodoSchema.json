@@ -1,0 +1,52 @@
+{
+    "type": "array",
+    "items": [
+      {
+        "type": "object",
+        "properties": {
+          "ID": {
+            "type": "string"
+          },
+          "Checked": {
+            "type": "boolean"
+          },
+          "Dot": {
+            "type": "string"
+          },
+          "Edit": {
+            "type": "string"
+          },
+          "CheckMark": {
+            "type": "string"
+          },
+          "Task": {
+            "type": "string"
+          },
+          "Email": {
+            "type": "string"
+          },
+          "Comment": {
+            "type": "string"
+          },
+          "Date": {
+            "type": "string"
+          },
+          "Color": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ID",
+          "Checked",
+          "Dot",
+          "Edit",
+          "CheckMark",
+          "Task",
+          "Email",
+          "Comment",
+          "Date",
+          "Color"
+        ]
+      }
+    ]
+  }
