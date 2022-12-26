@@ -59,7 +59,6 @@ export default function TopNavItem() {
       ],
     },
   ];
-  let vendors = JSON.parse(localStorage.getItem("ContinuingServices")) || [];
   return (
     <div className="NavBar">
       {drop.map((item, index) => {
