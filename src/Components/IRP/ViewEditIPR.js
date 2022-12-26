@@ -42,7 +42,6 @@ export default function ViewEditIPR({
 
       return item;
     });
-    console.log(updateData);
     if (updateData.length === 0) {
       localStorage.removeItem("ContinuingServices");
       window.location.reload();

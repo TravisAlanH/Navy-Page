@@ -3,10 +3,17 @@ import { v4 as uuid } from "uuid";
 import LabelWInput from "./BaseComponents/LabelWInput";
 import { useNavigate } from "react-router-dom";
 import { add } from "date-fns";
+import {
+  FaCog,
+  FaRegCheckCircle,
+  FaRegCircle,
+  FaRegWindowClose,
+} from "react-icons/fa";
 
 export default function Todo() {
   const navigate = useNavigate();
   const [adjustDate, setAdjustDate] = useState(0);
+  const [rerender, setRerender] = useState(false);
 
   var month = [
     "January",
@@ -55,30 +62,112 @@ export default function Todo() {
 
   let DateArray = [yesterdayTwo, yesterday, currentDate, tomorrow, tomorrowTwo];
 
-  const NewEvent = ["Task", "Comments", "Email"];
+  const NewEvent = ["Task", "Email"];
   let data = {};
   let event = JSON.parse(localStorage.getItem("TodoList")) || [];
 
   function AddTask(e) {
     e.preventDefault();
     data["ID"] = uuid();
+    data["Checked"] = false;
+    data["Dot"] = "block";
+    data["Edit"] = "none";
+    data["CheckMark"] = "none";
 
     NewEvent.forEach((element) => {
       data[element] = document.getElementById(element).value;
       document.getElementById(element).value = "";
     });
+    data["Comment"] = document.getElementById("Comment").value;
     data["Date"] = document.getElementById("Date").value;
     data["Color"] = document.getElementById("Color").value;
-    navigate(0);
     event.push(data);
     localStorage.setItem("TodoList", JSON.stringify(event));
     console.log(JSON.parse(localStorage.getItem("TodoList")));
+    setRerender(!rerender);
+  }
+
+  function EditTask(e) {
+    e.preventDefault();
+
+    // NewEvent.forEach((element) => {
+    //   data[element] = document.getElementById("New" + element).value;
+    // });
+    event.map((item) => {
+      if (document.getElementById("NewID").value === item.ID) {
+        // item["Checked"] = item.Checked;
+        item["Color"] = document.getElementById("NewColor").value;
+        item["Comment"] = document.getElementById("NewComment").value;
+        item["Date"] = document.getElementById("NewDate").value;
+        // item["Dot"] = item.Dot;
+        item["Edit"] = "none";
+        item["Email"] = document.getElementById("NewEmail").value;
+        // item["ID"] = item.ID;
+        item["Task"] = document.getElementById("NewTask").value;
+      }
+      return item;
+    });
+    localStorage.setItem("TodoList", JSON.stringify(event));
+    setRerender(!rerender);
   }
 
   let PlaceHolder = {};
   NewEvent.forEach((element) => {
     PlaceHolder[element] = "";
   });
+
+  function handleChecked(ID) {
+    event.map((item) => {
+      if (ID === item.ID) {
+        item.Checked = true;
+        item.CheckMark = "block";
+        item.Dot = "none";
+      }
+      return item;
+    });
+    localStorage.setItem("TodoList", JSON.stringify(event));
+    // navigate(0);
+    setRerender(!rerender);
+  }
+
+  function handleUnChecked(ID) {
+    event.map((item) => {
+      if (ID === item.ID) {
+        item.Checked = false;
+        item.CheckMark = "none";
+        item.Dot = "block";
+      }
+      return item;
+    });
+    localStorage.setItem("TodoList", JSON.stringify(event));
+    // navigate(0);
+
+    setRerender(!rerender);
+  }
+
+  function deleteItem(ID, Task) {
+    if (window.confirm("Are you sure you want to Delete:" + Task) === false)
+      return;
+    event.map((item, index) => {
+      if (ID === item.ID) {
+        event.splice(index, 1);
+      }
+      return item;
+    });
+    localStorage.setItem("TodoList", JSON.stringify(event));
+    setRerender(!rerender);
+  }
+
+  function editItem(ID) {
+    event.map((item) => {
+      if (ID === item.ID) {
+        item.Edit = "block";
+      }
+      return item;
+    });
+    localStorage.setItem("TodoList", JSON.stringify(event));
+    setRerender(!rerender);
+  }
 
   return (
     <div className="FlexColCenterCenter">
@@ -109,6 +198,8 @@ export default function Todo() {
 
           <div className="CalBoxDiv FlexRowCenterCenter">
             {DateArray.map((item, index) => {
+              let color = true;
+              let backgroundColor = "rgb(222, 225, 244)";
               return (
                 <div className="CalBox" key={index}>
                   <div className="Header">
@@ -118,23 +209,137 @@ export default function Todo() {
                     </div>
                     <div className="DayText">{days[item.getDay()]} </div>
                     {event.map((event, index) => {
+                      if (color !== true) {
+                        backgroundColor = "white";
+                        color = true;
+                      } else {
+                        backgroundColor = "rgb(222, 225, 244)";
+                        color = false;
+                      }
+                      let checkBox;
+                      if (event.Checked === false) {
+                        checkBox = (
+                          <FaRegCheckCircle
+                            onClick={() => handleChecked(event.ID)}
+                            className="Done"
+                          />
+                        );
+                      } else {
+                        checkBox = (
+                          <FaRegCircle
+                            onClick={() => handleUnChecked(event.ID)}
+                            className="Done"
+                          />
+                        );
+                      }
                       if (event.Date === formatDate(item.toISOString())) {
                         return (
-                          <div key={index} className="EventItem">
+                          <div
+                            key={index}
+                            className="EventItem"
+                            tabIndex="0"
+                            style={{
+                              backgroundColor: backgroundColor,
+                            }}
+                          >
                             <div className="EventType">
                               <span
                                 className="Dot"
-                                style={{ backgroundColor: event.Color }}
+                                style={{
+                                  backgroundColor: "transparent",
+                                  display: event.CheckMark,
+                                }}
+                              >
+                                <h4 className="CheckMark">&#x2713;</h4>
+                              </span>
+                              <span
+                                className="Dot"
+                                style={{
+                                  backgroundColor: event.Color,
+                                  display: event.Dot,
+                                }}
                               ></span>
                             </div>
                             <div className="EventContent">
                               <div className="EventName">
-                                <h5>{event.Task}</h5>{" "}
-                                <button className="Done">asdf</button>
+                                <div className="EventTask">
+                                  <h5>{event.Task}</h5>
+                                </div>
+                                <div className="noActive">{checkBox}</div>
+                                <div className="noActive">
+                                  <FaRegWindowClose
+                                    className="Done"
+                                    onClick={() =>
+                                      deleteItem(event.ID, event.Task)
+                                    }
+                                  />
+                                </div>
+                                <div className="noActive">
+                                  <FaCog
+                                    className="Done"
+                                    onClick={() => editItem(event.ID)}
+                                  />
+                                </div>
                               </div>
-                              <div className="EventText">asdf</div>
-                              <div className="EventText">asdf</div>
-                              <div className="EventText">asdf</div>
+                              <div className="EventText trueText">
+                                {event.Comment}
+                              </div>
+                              <div className="EventText">{event.Email}</div>
+                            </div>
+                            <div
+                              className="editBox"
+                              style={{
+                                display: event.Edit,
+                              }}
+                            >
+                              <form onSubmit={EditTask}>
+                                <div className="FlexRowCenterEnd">
+                                  <label>Edit Name</label>
+                                  <input
+                                    type="text"
+                                    id={"NewTask"}
+                                    defaultValue={event.Task}
+                                  />
+                                </div>
+                                <div className="FlexRowCenterEnd">
+                                  <label>Edit Comment</label>
+                                  <textarea
+                                    id={"NewComment"}
+                                    defaultValue={event.Comment}
+                                    rows="4"
+                                    cols="25"
+                                    className="trueText"
+                                  />
+                                </div>
+                                <div className="FlexRowCenterEnd">
+                                  <label>Edit Email</label>
+                                  <input
+                                    type="text"
+                                    id={"NewEmail"}
+                                    defaultValue={event.Email}
+                                  />
+                                </div>
+                                <input
+                                  type={"date"}
+                                  id="NewDate"
+                                  placeholder="DD-MMM-YYYY"
+                                  defaultValue={event.Date}
+                                />
+                                <input
+                                  type={"text"}
+                                  id={"NewID"}
+                                  defaultValue={event.ID}
+                                  style={{
+                                    display: "none",
+                                  }}
+                                />
+                                <input
+                                  type={"color"}
+                                  id="NewColor"
+                                  defaultValue={event.Color}
+                                />
+                                <input type={"submit"} />
+                              </form>
                             </div>
                           </div>
                         );
@@ -153,7 +358,21 @@ export default function Todo() {
           {NewEvent.map((item, index) => {
             return <LabelWInput command={item} dataInput={""} key={index} />;
           })}{" "}
-          <input type={"date"} id="Date" placeholder="DD-MMM-YYYY" />
+          <div className="FlexRowCenterEnd">
+            <label>Comment</label>
+            <textarea
+              id={"Comment"}
+              placeholder={"Comment"}
+              rows="4"
+              cols="25"
+            />
+          </div>
+          <input
+            type={"date"}
+            id="Date"
+            placeholder="DD-MMM-YYYY"
+            defaultValue={formatDate(today.toISOString())}
+          />
           <input type={"color"} id="Color" />
           <input type={"submit"} />
         </form>

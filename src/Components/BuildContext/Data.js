@@ -12,7 +12,7 @@ export default function Data() {
   const copyText = "Copy";
   const SaveText = "Save";
 
-  const dataArray = ["ContinuingServices", "RPN", "Command"];
+  const dataArray = ["ContinuingServices", "RPN", "Command", "TodoList"];
   const schemaData = [ContinuingServicesSchema, RPNSchema, CommandSchema];
 
   function CopyData(e) {
