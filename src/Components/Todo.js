@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import LabelWInput from "./BaseComponents/LabelWInput";
-import { useNavigate } from "react-router-dom";
 import { add } from "date-fns";
 import {
   FaCog,
@@ -11,7 +10,6 @@ import {
 } from "react-icons/fa";
 
 export default function Todo() {
-  const navigate = useNavigate();
   const [adjustDate, setAdjustDate] = useState(0);
   const [rerender, setRerender] = useState(false);
 
