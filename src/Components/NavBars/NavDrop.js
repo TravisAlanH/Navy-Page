@@ -9,17 +9,11 @@ export default function NavDrop({ Title, Content, Type }) {
         <button className="DropBTN">Vendor Links</button>
         <div className="DropDownContent">
           {vendors.map((item, index) => {
-            if (item.WEB === "") {
+            if (item.WEB === "" || item.Title === "") {
               return null;
             }
             return (
-              <a
-                className="NavListItemLink"
-                href={"https://" + item.WEB}
-                target="_blank"
-                rel="noreferrer"
-                key={index}
-              >
+              <a className="NavListItemLink" href={"https://" + item.WEB} target="_blank" rel="noreferrer" key={index}>
                 {item.Company}
               </a>
             );
@@ -34,6 +28,16 @@ export default function NavDrop({ Title, Content, Type }) {
           <button className="DropBTN">{Title}</button>
           <div className="DropDownContent">
             {Content.map((item, index) => {
+              if (item.Title === "") {
+                return null;
+              }
+              if (item.Send === "_blank") {
+                return (
+                  <a className="NavListItemLink" href={item.Link} target="_blank" rel="noreferrer" key={index}>
+                    {item.Title}
+                  </a>
+                );
+              }
               return (
                 <Link to={item.Link} className="NavListItemLink" key={index}>
                   {item.Title}

@@ -15,6 +15,9 @@ export default function Settings() {
     CommandArray.forEach((element) => {
       data[element] = document.getElementById(element).value;
     });
+    let Region = document.getElementById("Region");
+    data["RegionLink"] = Region.value;
+    data["RegionName"] = "REDCOM " + Region.options[Region.selectedIndex].text;
     localStorage.setItem("Command", JSON.stringify(data));
     navigate(0);
   }
@@ -33,6 +36,17 @@ export default function Settings() {
           let load = Object.values(loadData)[index];
           return <LabelWInput command={item} dataInput={load} key={index} />;
         })}
+        <div className="FlexRowCenterEnd">
+          <label>Region</label>
+          <select name="Region" id="Region">
+            <option value={"NRMA_GL"}>Great Lakes</option>
+            <option value={"NRMA_NFK"}>Norfolk</option>
+            <option value={"NRNW"}>Everett</option>
+            <option value={"NRSE_JAX"}>Jacksonville</option>
+            <option value={"NRSW_FW"}>Fort Worth</option>
+            <option value={"NRSW"}>SanDiego</option>
+          </select>
+        </div>
         <input type={"submit"} />
       </form>
     </div>

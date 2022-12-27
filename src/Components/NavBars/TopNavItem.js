@@ -14,10 +14,17 @@ export default function TopNavItem() {
         {
           "Title": "Home",
           "Link": "/Home",
+          "Send": "",
+        },
+        {
+          "Title": Command.RegionName || "REGION",
+          "Link": "https://www.private.navyreserve.navy.mil/RCC/" + Command.RegionLink + "/Pages/NRH_Default.aspx",
+          "Send": "_blank",
         },
         {
           "Title": "Todo",
           "Link": "/Todo",
+          "Send": "",
         },
       ],
     },
