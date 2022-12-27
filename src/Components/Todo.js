@@ -2,41 +2,15 @@ import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import LabelWInput from "./BaseComponents/LabelWInput";
 import { add } from "date-fns";
-import {
-  FaCog,
-  FaRegCheckCircle,
-  FaRegCircle,
-  FaRegWindowClose,
-} from "react-icons/fa";
+import { FaCog, FaRegCheckCircle, FaRegCircle, FaRegWindowClose } from "react-icons/fa";
 
 export default function Todo() {
   const [adjustDate, setAdjustDate] = useState(0);
   const [rerender, setRerender] = useState(false);
 
-  var month = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  var days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   function formatDate(date) {
     var d = new Date(date),
@@ -147,8 +121,7 @@ export default function Todo() {
   }
 
   function deleteItem(ID, Task) {
-    if (window.confirm("Are you sure you want to Delete:" + Task) === false)
-      return;
+    if (window.confirm("Are you sure you want to Delete:" + Task) === false) return;
     event.map((item, index) => {
       if (ID === item.ID) {
         event.splice(index, 1);
@@ -219,19 +192,9 @@ export default function Todo() {
                       }
                       let checkBox;
                       if (event.Checked === false) {
-                        checkBox = (
-                          <FaRegCheckCircle
-                            onClick={() => handleChecked(event.ID)}
-                            className="Done"
-                          />
-                        );
+                        checkBox = <FaRegCheckCircle onClick={() => handleChecked(event.ID)} className="Done" />;
                       } else {
-                        checkBox = (
-                          <FaRegCircle
-                            onClick={() => handleUnChecked(event.ID)}
-                            className="Done"
-                          />
-                        );
+                        checkBox = <FaRegCircle onClick={() => handleUnChecked(event.ID)} className="Done" />;
                       }
                       if (event.Date === formatDate(item.toISOString())) {
                         return (
@@ -268,23 +231,13 @@ export default function Todo() {
                                 </div>
                                 <div className="noActive">{checkBox}</div>
                                 <div className="noActive">
-                                  <FaRegWindowClose
-                                    className="Done"
-                                    onClick={() =>
-                                      deleteItem(event.ID, event.Task)
-                                    }
-                                  />
+                                  <FaRegWindowClose className="Done" onClick={() => deleteItem(event.ID, event.Task)} />
                                 </div>
                                 <div className="noActive">
-                                  <FaCog
-                                    className="Done"
-                                    onClick={() => editItem(event.ID)}
-                                  />
+                                  <FaCog className="Done" onClick={() => editItem(event.ID)} />
                                 </div>
                               </div>
-                              <div className="EventText trueText">
-                                {event.Comment}
-                              </div>
+                              <div className="EventText trueText">{event.Comment}</div>
                               <div className="EventText">{event.Email}</div>
                             </div>
                             <div
@@ -296,36 +249,17 @@ export default function Todo() {
                               <form onSubmit={EditTask}>
                                 <div className="FlexRowCenterEnd">
                                   <label>Edit Name</label>
-                                  <input
-                                    type="text"
-                                    name={"NewTask"}
-                                    defaultValue={event.Task}
-                                  />
+                                  <input type="text" name={"NewTask"} defaultValue={event.Task} />
                                 </div>
                                 <div className="FlexRowCenterEnd">
                                   <label>Edit Comment</label>
-                                  <textarea
-                                    name={"NewComment"}
-                                    defaultValue={event.Comment}
-                                    rows="4"
-                                    cols="25"
-                                    className="trueText"
-                                  />
+                                  <textarea name={"NewComment"} defaultValue={event.Comment} rows="4" cols="25" className="trueText" />
                                 </div>
                                 <div className="FlexRowCenterEnd">
                                   <label>Edit Email</label>
-                                  <input
-                                    type="text"
-                                    name={"NewEmail"}
-                                    defaultValue={event.Email}
-                                  />
+                                  <input type="text" name={"NewEmail"} defaultValue={event.Email} />
                                 </div>
-                                <input
-                                  type={"date"}
-                                  name="NewDate"
-                                  placeholder="DD-MMM-YYYY"
-                                  defaultValue={event.Date}
-                                />
+                                <input type={"date"} name="NewDate" placeholder="DD-MMM-YYYY" defaultValue={event.Date} />
                                 <input
                                   type={"text"}
                                   name="NewID"
@@ -334,11 +268,7 @@ export default function Todo() {
                                     display: "none",
                                   }}
                                 />
-                                <input
-                                  type={"color"}
-                                  name="NewColor"
-                                  defaultValue={event.Color}
-                                />
+                                <input type={"color"} name="NewColor" defaultValue={event.Color} />
                                 <input type={"submit"} />
                               </form>
                             </div>
@@ -361,19 +291,9 @@ export default function Todo() {
           })}{" "}
           <div className="FlexRowCenterEnd">
             <label>Comment</label>
-            <textarea
-              id={"Comment"}
-              placeholder={"Comment"}
-              rows="4"
-              cols="25"
-            />
+            <textarea id={"Comment"} placeholder={"Comment"} rows="4" cols="25" />
           </div>
-          <input
-            type={"date"}
-            id="Date"
-            placeholder="DD-MMM-YYYY"
-            defaultValue={formatDate(today.toISOString())}
-          />
+          <input type={"date"} id="Date" placeholder="DD-MMM-YYYY" defaultValue={formatDate(today.toISOString())} />
           <input type={"color"} id="Color" />
           <input type={"submit"} />
         </form>

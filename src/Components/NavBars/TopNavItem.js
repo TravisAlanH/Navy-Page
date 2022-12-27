@@ -45,6 +45,16 @@ export default function TopNavItem() {
       "Content": [],
     },
     {
+      "Title": "Manage Members",
+      "Type": "",
+      "Content": [
+        {
+          "Title": "Members",
+          "Link": "/Members",
+        },
+      ],
+    },
+    {
       "Title": "Settings",
       "Type": "",
       "Content": [
