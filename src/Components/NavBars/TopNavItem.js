@@ -29,6 +29,32 @@ export default function TopNavItem() {
       ],
     },
     {
+      "Title": "GCPC",
+      "Type": "",
+      "Content": [
+        {
+          "Title": "US Bank",
+          "Link": "https://access.usbank.com/",
+          "Send": "_blank",
+        },
+        {
+          "Title": "CFMS-C",
+          "Link": "https://cfmsalb.cfms.navy.mil/CFMSResprod/index.do",
+          "Send": "_blank",
+        },
+        {
+          "Title": "One Touch",
+          "Link": "https://www.onetouch.navy.mil",
+          "Send": "_blank",
+        },
+        {
+          "Title": "PIEE",
+          "Link": "https://piee.eb.mil/xhtml/unauth/home/login.xhtml",
+          "Send": "_blank",
+        },
+      ],
+    },
+    {
       "Title": "Continuing Services",
       "Type": "",
       "Content": [
@@ -52,12 +78,32 @@ export default function TopNavItem() {
       "Content": [],
     },
     {
-      "Title": "Manage Members",
+      "Title": "Members",
       "Type": "",
       "Content": [
         {
+          "Title": "NREL",
+          "Link": "https://locker.private.navyreserve.navy.mil/nrel/#/",
+          "Send": "_blank",
+        },
+        {
+          "Title": "KYLOC",
+          "Link": "https://www.kyloc.com/usnr/",
+          "Send": "_blank",
+        },
+        {
+          "Title": "RUMS",
+          "Link": "https://locker.private.navyreserve.navy.mil/rums/",
+          "Send": "_blank",
+        },
+        {
           "Title": "Members",
           "Link": "/Members",
+        },
+        {
+          "Title": "Route And Distance Map",
+          "Link": "https://www.google.com/maps/dir//" + Command.Address + " " + Command.State + " " + Command.Zip,
+          "Send": "_blank",
         },
       ],
     },
