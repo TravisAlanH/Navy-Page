@@ -1,20 +1,29 @@
+import { lastDayOfQuarter } from "date-fns";
 import React, { useState, useEffect } from "react";
 import IPR from "./IPR";
 import RPN from "./RPN";
 
 export default function ViewIPRRPNDocs() {
   const [data, setData] = useState([]);
+  const [reBuild, setReBuild] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("ContinuingServices") === null) {
       return;
     }
-    setData(
-      JSON.parse(localStorage.getItem("ContinuingServices")).sort((a, b) =>
-        a.Company > b.Company ? 1 : -1
-      )
-    );
+    setData(JSON.parse(localStorage.getItem("ContinuingServices")).sort((a, b) => (a.Company > b.Company ? 1 : -1)));
   }, []);
+
+  function HandleDate() {
+    data.map((item) => {
+      console.log(item);
+      if (item.id === "") {
+        return null;
+      }
+      return (item.Date = document.getElementById("HandleDateChange").value);
+    });
+    setReBuild(!reBuild);
+  }
 
   function PrintRPN() {
     document.getElementById("RPN").classList.remove("noPrint");
@@ -36,32 +45,20 @@ export default function ViewIPRRPNDocs() {
         <div className="FlexRowCenterCenter">
           <div className="RadioDiv">
             <label>ALL</label>
-            <input
-              type="radio"
-              name="PrintRadio"
-              className="PrintRadio"
-              onChange={PrintAll}
-              checked
-            />
+            <input type="radio" name="PrintRadio" className="PrintRadio" onChange={PrintAll} checked />
           </div>
           <div className="RadioDiv">
             <label>RPN</label>
-            <input
-              type="radio"
-              name="PrintRadio"
-              className="PrintRadio"
-              onChange={PrintRPN}
-            />
+            <input type="radio" name="PrintRadio" className="PrintRadio" onChange={PrintRPN} />
           </div>
           <div className="RadioDiv">
             <label>OPR</label>
-            <input
-              type="radio"
-              name="PrintRadio"
-              className="PrintRadio"
-              onChange={PrintIPR}
-            />
+            <input type="radio" name="PrintRadio" className="PrintRadio" onChange={PrintIPR} />
           </div>
+        </div>
+        <div className="FlexRowCenterCenter">
+          <label>Set All Dates</label>
+          <input type={"date"} id="HandleDateChange" onChange={HandleDate} />
         </div>
       </div>
       {data.map((item, index) => {
