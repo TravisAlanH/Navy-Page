@@ -1,31 +1,6 @@
 import React from "react";
 
-export default function IPR({
-  id,
-  Company,
-  POC,
-  Address,
-  Address2,
-  State,
-  Zip,
-  Phone,
-  Qty,
-  UI,
-  UP,
-  Description,
-  Priority,
-  Department,
-  Date,
-  Just,
-  OF,
-  IJS,
-  WS,
-  F,
-  PS,
-  FFS,
-  HAZ,
-  AUL,
-}) {
+export default function IPR({ id, Company, POC, Address, Address2, State, Zip, Phone, Qty, UI, UP, Description, Priority, Department, Date, Just, OF, IJS, WS, F, PS, FFS, HAZ, AUL }) {
   let Command = JSON.parse(localStorage.getItem("Command"));
   return (
     <div className="IPRPrintArea" id="IPR">
@@ -66,9 +41,7 @@ export default function IPR({
         <div className="Data14">{Qty}</div>
         <div className="Data15">{UP}</div>
         <div className="Data16">{UI}</div>
-        <div className="Data17">
-          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
-        </div>
+        <div className="Data17">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
         <div className="Data21"></div>
         <div className="Data22"></div>
         <div className="Data23"></div>
@@ -97,9 +70,7 @@ export default function IPR({
         <div className="Grand">
           <b>Grand Total:</b>
         </div>
-        <div className="GrandTotal">
-          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
-        </div>
+        <div className="GrandTotal">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
         <div className="SourceTo">
           <b>Source To: {Company}</b>
         </div>
@@ -123,9 +94,7 @@ export default function IPR({
         <div className="ToPhone">Phone #:</div>
         <div className="ToPhoneData">{Command.Phone}</div>
         <div className="RequestJustification">
-          <b style={{ "color": "red", "fontSize": "1rem" }}>
-            REQUEST MUST HAVE VALID JUSTIFICATION
-          </b>
+          <b style={{ "color": "red", "fontSize": "1rem" }}>REQUEST MUST HAVE VALID JUSTIFICATION</b>
         </div>
         <div className="JustificationData">
           {Date} : {Just}
@@ -174,9 +143,7 @@ export default function IPR({
           <b>BELOW INFORMATION TO BE COMPLETED BY SUPPLY DEPT ONLY</b>
         </div>
         <div className="ScreenedFor">
-          <b>
-            SCREENED FOR AVAILABILITY FROM MANDATORY SOURCES (FAR PARA 8.001)
-          </b>
+          <b>SCREENED FOR AVAILABILITY FROM MANDATORY SOURCES (FAR PARA 8.001)</b>
         </div>
         <div className="ScreeningSection2 FlexRowCenterCenter">
           <b style={{ "fontSize": ".9rem" }}>Mandatory Sources of Supply</b>
@@ -187,56 +154,42 @@ export default function IPR({
         <div className="ScreeningSection4 FlexRowCenterCenter">
           <b style={{ "fontSize": ".9rem" }}>Status</b>
         </div>
-        <div className="ScreeningSection2">
-          Office Supplies: AbilityOne Office Supplies from FEDMALL or a local
-          Servmart
-        </div>
+        <div className="ScreeningSection2">Office Supplies: AbilityOne Office Supplies from FEDMALL or a local Servmart</div>
         <div className="ScreeningSection3 FlexRowCenterCenter">
           <a href=" " style={{ "fontSize": ".7rem" }}>
             https://www.restricted.fedmall.mil/webapp/wcs/stores/servlet/en/fśŕ
           </a>
         </div>
         <div className="ScreeningSection4">{OF}</div>
-        <div className="ScreeningSection2">
-          Incidental Janitorial and Sanitation Supplies: AbilityOne Office
-          Supplies from FEDMALL
-        </div>
+        <div className="ScreeningSection2">Incidental Janitorial and Sanitation Supplies: AbilityOne Office Supplies from FEDMALL</div>
         <div className="ScreeningSection3 FlexRowCenterCenter">
           <a href=" " style={{ "fontSize": ".7rem" }}>
             https://www.restricted.fedmall.mil/webapp/wcs/stores/servlet/en/fśŕ
           </a>
         </div>
         <div className="ScreeningSection4">{IJS}</div>
-        <div className="ScreeningSection2">
-          Wireless Services: NAVSUP FLC ‐ San Diego (DON Wireless Contract)
-        </div>
+        <div className="ScreeningSection2">Wireless Services: NAVSUP FLC ‐ San Diego (DON Wireless Contract)</div>
         <div className="ScreeningSection3 FlexRowCenterCenter">
           <a href=" " style={{ "fontSize": ".7rem" }}>
             https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?_afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114
           </a>
         </div>
         <div className="ScreeningSection4">{WS}</div>
-        <div className="ScreeningSection2">
-          Furniture: NAVSUP FLC ‐ Norfolk BPA
-        </div>
+        <div className="ScreeningSection2">Furniture: NAVSUP FLC ‐ Norfolk BPA</div>
         <div className="ScreeningSection3 FlexRowCenterCenter">
           <a href=" " style={{ "fontSize": ".7rem" }}>
             https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?_afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114
           </a>
         </div>
         <div className="ScreeningSection4">{F}</div>
-        <div className="ScreeningSection2">
-          Printing Services: DLA Document Services
-        </div>
+        <div className="ScreeningSection2">Printing Services: DLA Document Services</div>
         <div className="ScreeningSection3 FlexRowCenterCenter">
           <a href=" " style={{ "fontSize": ".7rem" }}>
             https://dso.dla.mil/DSF/storefront.aspx
           </a>
         </div>
         <div className="ScreeningSection4">{PS}</div>
-        <div className="ScreeningSection22">
-          Federal Supply Schedules (FSS) Contract #
-        </div>
+        <div className="ScreeningSection22">Federal Supply Schedules (FSS) Contract #</div>
         <div className="ScreeningSection12">{FFS}</div>
         <div className="Hazmat">
           <b>HAZMAT:</b>
@@ -279,9 +232,7 @@ export default function IPR({
         <div className="AOCHPrintSignBlank"></div>
         <div className="AOCHDateBlank"></div>
         <div className="BottomHeader">
-          <b>
-            FORM SHOULD BE TYPED FOR PROPER IDENTIFICATION OF ITEMS REQUESTED
-          </b>
+          <b>FORM SHOULD BE TYPED FOR PROPER IDENTIFICATION OF ITEMS REQUESTED</b>
         </div>
       </div>
     </div>

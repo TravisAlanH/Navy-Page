@@ -1,32 +1,6 @@
 import React from "react";
 
-export default function RPN({
-  id,
-  Company,
-  POC,
-  Address,
-  Address2,
-  State,
-  Zip,
-  Phone,
-  Qty,
-  UI,
-  UP,
-  Description,
-  Priority,
-  Department,
-  Date,
-  Just,
-  OF,
-  IJS,
-  WS,
-  F,
-  PS,
-  FFS,
-  HAZ,
-  AUL,
-  PriorAmount,
-}) {
+export default function RPN({ id, Company, POC, Address, Address2, State, Zip, Phone, Qty, UI, UP, Description, Priority, Department, Date, Just, OF, IJS, WS, F, PS, FFS, HAZ, AUL, PriorAmount }) {
   let data;
   if (localStorage.getItem("RPN") === null) {
     data = {
@@ -84,92 +58,54 @@ export default function RPN({
         <div className="B1 BorderAll AlignCenterCenter">PAA</div>
         <div className="B1 BorderAll AlignCenterCenter">COST CODE</div>
         <div className="B1 BorderAll AlignCenterCenter">AMOUNT</div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.ACRN}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.GA}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.BFYEFY}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.APPN}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.SBHD}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.OBJCLASS}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.BCN}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.BLANK}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.SA}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.AAA}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.TT}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.PAA}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight">
-          {data.COSTCOST}
-        </div>
-        <div className="B1 BorderAll AlignCenterCenter GrayLight"></div>
-        <div className="B13 BorderAll AlignEndBottom GrayLight">
-          Prior Funding Document Grand Total
-        </div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.ACRN}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.GA}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.BFYEFY}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.APPN}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.SBHD}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.OBJCLASS}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.BCN}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.BLANK}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.SA}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.AAA}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.TT}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.PAA}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">{data.COSTCOST}</div>
+        <div className="B1 BorderAll AlignCenterCenter GrayLight">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
+        <div className="B13 BorderAll AlignEndBottom GrayLight">Prior Funding Document Grand Total</div>
         <div className="B1 BorderAll Yellow">{PriorAmount}</div>
         <div className="B14 BorderAll"></div>
         <div className="B1 BorderAll AlignCenterCenter">ACRN</div>
         <div className="B1 BorderAll AlignCenterCenter">Item Number</div>
-        <div className="B8 BorderAll AlignCenterCenter">
-          Line Item Decription
-        </div>
+        <div className="B8 BorderAll AlignCenterCenter">Line Item Decription</div>
         <div className="B1 BorderAll AlignCenterCenter">Unit Of Issue</div>
         <div className="B1 BorderAll AlignCenterCenter">Quantity Ordered</div>
         <div className="B1 BorderAll AlignCenterCenter">Unit Price</div>
         <div className="B1 BorderAll AlignCenterCenter">Line Item Total</div>
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
-        <div className="B8 AlignBottom">
-          This Amendment is issued to Increase/Decrease funding for{" "}
-        </div>
+        <div className="B8 AlignBottom">This Amendment is issued to Increase/Decrease funding for </div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
-        <div className="B8 AlignBottom">
-          Subsistance of Drilling Reserve Personnel who are conducting
-        </div>
+        <div className="B8 AlignBottom">Subsistance of Drilling Reserve Personnel who are conducting</div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
-        <div className="B8 AlignBottom">
-          2 four hour IDT drills on day following the Dinner Meal and on the{" "}
-        </div>
+        <div className="B8 AlignBottom">2 four hour IDT drills on day following the Dinner Meal and on the </div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
-        <div className="B8 AlignBottom">
-          day of for the breakfast/Lunch Meals dates listed below:
-        </div>
+        <div className="B8 AlignBottom">day of for the breakfast/Lunch Meals dates listed below:</div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
         <div className="B1 BorderAll Gray"></div>
@@ -183,9 +119,7 @@ export default function RPN({
         <div className="B1 BorderAll">{UI}</div>
         <div className="B1 BorderAll Yellow">{Qty}</div>
         <div className="B1 BorderAll">{UP}</div>
-        <div className="B1 BorderAll GrayLight">
-          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
-        </div>
+        <div className="B1 BorderAll GrayLight">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
@@ -265,19 +199,13 @@ export default function RPN({
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
-        <div className="B11 BorderTop BorderRight GrayLight">
-          Source of Supply Circle One
-        </div>
+        <div className="B11 BorderTop BorderRight GrayLight">Source of Supply Circle One</div>
         <div className="B1 Gray"></div>
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
         <div className="B11 BorderRight GrayLight">
-          1) FAR 8.002 Mandatory Source:
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navy
-          Galley&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          or&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Other Service Dining
-          Facility/Galley{" "}
+          1) FAR 8.002 Mandatory Source: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navy Galley&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Other Service Dining Facility/Galley{" "}
         </div>
         <div className="B1 Gray"></div>
         {/*  */}
@@ -291,16 +219,13 @@ export default function RPN({
         <div className="B11 BorderRight GrayLight">
           2) Open
           Market:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          Commercial Vendor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          or&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catering Service
+          Commercial Vendor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catering Service
         </div>
         <div className="B1 Gray"></div>
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
-        <div className="B11 BorderRight AlignCenterCenter GrayLight">
-          Open Market "Fair and Reasonable Pricing" determined by: Circle One
-        </div>
+        <div className="B11 BorderRight AlignCenterCenter GrayLight">Open Market "Fair and Reasonable Pricing" determined by: Circle One</div>
         <div className="B1 Gray"></div>
         {/*  */}
         <div className="B1 BorderRight"></div>
@@ -311,19 +236,14 @@ export default function RPN({
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
         <div className="B11 BorderRight GrayLight">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A)
-          Annual Market Survey
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B)
-          Written Price Quote per IPR
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A) Annual Market Survey
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B) Written Price Quote per IPR
         </div>
         <div className="B1 Gray"></div>
         {/*  */}
         <div className="B1 BorderRight"></div>
         <div className="B1 BorderRight"></div>
-        <div className="B11 BorderRight BorderBottom AlignCenterCenter GrayLight">
-          Copies of Annual Market Survey to be forwarded to your RCC for PPMAP
-          Records.
-        </div>
+        <div className="B11 BorderRight BorderBottom AlignCenterCenter GrayLight">Copies of Annual Market Survey to be forwarded to your RCC for PPMAP Records.</div>
         <div className="B1 Gray"></div>
         {/*  */}
         <div className="B1 BorderRight"></div>
@@ -357,12 +277,8 @@ export default function RPN({
         <div className="B4 BorderRight"></div>
         <div className="B1 Gray"></div>
         {/*  */}
-        <div className="B13 BorderTop BorderRight AlignEndBottom">
-          Line Item Page Total:
-        </div>
-        <div className="B1 GrayLight">
-          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
-        </div>
+        <div className="B13 BorderTop BorderRight AlignEndBottom">Line Item Page Total:</div>
+        <div className="B1 GrayLight">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
         {/*  */}
         <div className="B2 AlignEndBottom"> Department Head: </div>
         <div className="B11 BorderBottom BorderRight"></div>
@@ -375,9 +291,7 @@ export default function RPN({
           <span>Date</span>
         </div>
         <div className="B1 BorderRight AlignEndBottom">Grand Total:</div>
-        <div className="B1 GrayLight">
-          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
-        </div>
+        <div className="B1 GrayLight">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
         {/*  */}
         <div className="B2 AlignEndBottom"> Funds Approver: </div>
         <div className="B10 BorderBottom BorderRight Yellow"></div>
@@ -390,12 +304,8 @@ export default function RPN({
           <span>Signature</span>
           <span>Date</span>
         </div>
-        <div className="B1 BorderBottom BorderRight AlignEndBottom">
-          Cumulative Total:
-        </div>
-        <div className="B1 GrayLight">
-          ${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}
-        </div>
+        <div className="B1 BorderBottom BorderRight AlignEndBottom">Cumulative Total:</div>
+        <div className="B1 GrayLight">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
         <div className="B14 BorderTop FlexRowCenterCenter">
           <span>PREVIOUS EDITION IS OBSOLETE</span>
         </div>
