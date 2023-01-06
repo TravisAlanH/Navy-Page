@@ -199,7 +199,7 @@ align-items: center;
 
 @media print {
     * {
-        font-size: 90%;
+        font-size: 85%;
         print-color-adjust: exact;
     }
     
